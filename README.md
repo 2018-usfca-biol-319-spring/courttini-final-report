@@ -2,7 +2,7 @@
 ## Complete draft due as a pull request on Monday, May 7th, 2018 before 11:59 pm
 ## Complete, revised draft due by Thursday, May 17th, 2017 before 11:59 pm
 
-The **goal of this final project** is to have you apply all of the ecological concepts and skills you have learned, including your skills in R, markdown, scientific writing, and exploratory data analysis, to write a report in the style of a scientific manuscript, based on your novel analyses of a NEON dataset of your choosing.
+The **goal of this final project** is to have you apply all of the ecological concepts and skills you have learned, including your skills in R, markdown, scientific writing, and exploratory data analysis, to write a report in the style of a scientific manuscript, based on your novel analyses of a NEON dataset of your choosing. 
 
 You will each be using the dataset(s) you chose and described in your short project proposal.
 
