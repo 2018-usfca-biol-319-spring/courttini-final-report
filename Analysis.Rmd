@@ -1,0 +1,56 @@
+---
+title: "Analysis Report 2: NEON Mosquito Trap Data"
+author: "Don Francisco"
+date: "4/3/2018"
+bibliography: references.bib
+csl: ecology.csl
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+
+Delete this placeholder text, and replace it with your introduction text. You should include background on the NEON project including proper citations (e.g. [@thorpe2016introduction]) and other relevent background information related to your specific hypotheses. Add about 2-3 pages here. Across the whole manuscript, you should cite at least 20 peer reviewed articles.
+
+# Methods
+
+Describe where the data came from, including the sets of sites you are comparing, how the data you are using were collected in the field, some information about those sites and why you chose them, and how you are analyzing them (e.g. using R to visualize the results and the statistical tests you will use).
+
+## Site Locations and Descriptions
+
+Add text here. In this section instead of first person (I/we), use 'NEON', or 'NEON scientists', since you'll just be describing what they did.
+
+## Field Sampling Design
+
+Add text here. Add text here. In this section instead of first person (I/we), use 'NEON', or 'NEON scientists', since you'll just be describing what they did.
+
+## Data Analysis and Statistics
+
+Add text here. Here this is all your work, so 'I/we' is fine.
+
+# Results
+
+## Subsections are ok in the results section too
+
+Add a number of code chunks in the Results section. These should read in, subset and plot the data as needed (no need to save any figures to pdf, since they will be put into the rendered document when you click 'knit'), and, for any hypotheses that you want to test, an appropriate statistical test. You should have at least 5-10 figures and/or tables in this section, which you use to test your hypotheses against the dataset. 
+
+```{r load-packages}
+# If you add any additional packages here, make sure they are
+# also listed in the DESCRIPTION file
+library("dplyr")
+library("tidyr")
+library("ggplot2")
+library("readr")
+```
+
+In addition to a minimum of 5-10 figures/tables (and associated captions), you should include sufficient text in this section to describe what your findings were. Remember that in the Results section you just describe what you found, but you don't interpret it - that happens in the Discussion. 2-3 pages.
+
+# Discussion
+
+Discuss the results you found in the context of what you know about the site/sites and the predominant types of ecosystems in those locations. Think also about the community dynamics, different types of species interactions, food webs, trophic transfer, energy flow, etc. Should be around 3-4 pages interpreting your results and considering future directions you could take in analyzing these data.
+
+# Sources Cited
+
