@@ -1,0 +1,108 @@
+table,fieldName,description,dataType,units,parserToCreate,entryValidationRulesParser,entryValidationRulesForm
+zoo_fieldData,zooDepth2,"Depth of the second sample for a composite lake zooplankton sample",real,meter,,"[ASCII][GREATER_THAN (0)][LESS_THAN_OR_EQUAL_TO (30)][IF(IS_BLANK(zooDepth1)), REQUIRE_NULL]","[GREATER_THAN (0)][LESS_THAN_OR_EQUAL_TO (30)][IF(IS_BLANK(samplingImpractical), WARN][IF(IS_BLANK(zooDepth1)), REQUIRE_NULL]"
+zoo_fieldData,sampleNumber,"Number of sample collected",unsigned integer,NA,,"[ASCII][IF IS_BLANK(samplingImpractical), REQUIRE][IF IS_NOT_BLANK(samplingImpractical), REQUIRE_NULL][GREATER_THAN(0)][LESS_THAN_OR_EQUAL_TO(3)]","[IF IS_BLANK(samplingImpractical), REQUIRE][IF IS_NOT_BLANK(samplingImpractical), REQUIRE_NULL][GREATER_THAN(0)][LESS_THAN_OR_EQUAL_TO(3)]"
+zoo_fieldData,startDate,"The start date-time or interval during which an event occurred",dateTime,NA,"[CONVERT_TO_UTC(namedLocation)]",,"[REQUIRE][DATE_FORMAT(YYYY-MM-DDTHH:MM)][LESS_THAN_OR_EQUAL_TO (NOW + 24hr)]"
+zoo_fieldData,dataQF,"Data quality flag",string,NA,,"[ASCII]",
+zoo_fieldData,remarks,"Technician notes; free text comments accompanying the record",string,NA,,"[ASCII][IF(IS_NOT_BLANK(samplingImpractical)), REQUIRE]","[ASCII][IF(IS_NOT_BLANK(samplingImpractical)), REQUIRE]"
+zoo_fieldData,uid,"Unique ID within NEON database; an identifier for the record",string,NA,"[CREATE_UID]",,"[HIDDEN]"
+zoo_fieldData,collectDate,"Date of the collection event",dateTime,NA,"[CONVERT_TO_UTC(namedLocation)]",,"[REQUIRE][DEFAULT_TO (startDate)][HIDDEN]"
+zoo_fieldData,samplingProtocolVersion,"The NEON document number and version where detailed information regarding the sampling method used is available; format NEON.DOC.######vX",string,NA,,"[LOV]","[REQUIRE][LOV][SUGGESTED_VALUE(previousValue)]"
+zoo_fieldData,sampleCode,"Barcode of a sample",string,NA,,"[ASCII]","[HIDDEN]"
+zoo_fieldData,locationID,"Identifier for location where sample was collected",string,NA,,"[NAMED_LOCATION_TYPE('AOS outlet named location type' OR 'AOS inlet named location type' OR 'AOS buoy named location type')]","[REQUIRE][FROM_AOS_SPATIAL(AOS outlet named location type OR AOS inlet named location type OR AOS buoy named location type)]"
+zoo_fieldData,sampleFate,"Fate of a sample",string,NA,,"[ASCII]","[HIDDEN][DEFAULT_TO('active')]"
+zoo_fieldData,recordedBy,"An identifier for the technician who recorded the data",string,NA,,"[ASCII]","[FROM_PERSONNEL][SUGGESTED_ENTRY (previousValue)]"
+zoo_fieldData,fulcrumVersion,"Version of the Fulcrum application used during data entry",string,NA,,"[ASCII]",
+zoo_fieldData,towsTrapsNumber,"Number of zooplankton tows or traps composited into one sample",unsigned integer,number,,"[ASCII][IF IS_BLANK(samplingImpractical), REQUIRE][GREATER_THAN(0)]","[IF IS_BLANK(samplingImpractical), REQUIRE][GREATER_THAN(0)][LESS_THAN_OR_EQUAL_TO (3)]"
+zoo_fieldData,sampleClass,"Class of a sample",string,NA,,"[ASCII]","[IF (dna_sample_collected = yes), default_to(“zoo_fielddata_in.sampleID.dna”][IF(dna_sample_collected = no), default_to(“zoo_fielddata_in.sampleID”]"
+zoo_fieldData,sampleID,"Identifier for sample",string,NA,,"[DOES_NOT_EXIST][ASCII][IF IS_BLANK(samplingImpractical), REQUIRE]","[IF(IS_BLANK(samplingImpractical), REQUIRE][SITE & \.\" & startDate(YYYYMMDD) & \".\" & samplerType & \".\" & consecutive number]""
+zoo_fieldData,platformInfo,"Operating System and browser information (where applicable) of computer used during data entry",string,NA,,"[ASCII]",
+zoo_fieldData,towsTrapsVolume,"Sample volume collected for zooplankton",real,liter,,"[ASCII][REQUIRE][GREATER_THAN (0)][LESS_THAN_OR_EQUAL_TO (7000)]","[REQUIRE][GREATER_THAN (0)][LESS_THAN_OR_EQUAL_TO (7000)]"
+zoo_fieldData,additionalCoordUncertainty,"Additional uncertainty to be added to the coordinate uncertainty at all sites",real,meter,,,"[DEFAULT_TO (10)][HIDDEN]"
+zoo_fieldData,zooDepth3,"Depth of the third sample for a composite lake zooplankton sample",real,meter,,"[ASCII][GREATER_THAN (0)][LESS_THAN_OR_EQUAL_TO (30)][IF(IS_BLANK(zooDepth2)), REQUIRE_NULL]","[GREATER_THAN (0)][LESS_THAN_OR_EQUAL_TO (30)][IF(IS_BLANK(zooDepth2)), REQUIRE_NULL]"
+zoo_fieldData,collectedBy,"An identifier for the technician who collected the sample or specimen",string,NA,,"[ASCII]","[REQUIRE][FROM_PERSONNEL][SUGGESTED_ENTRY (previousValue)]"
+zoo_fieldData,samplerType,"Type of sampler used to collect the sample",string,NA,,"[LOV]","[IF(IS_BLANK(samplingImpractical), REQUIRE][LOV]"
+zoo_fieldData,aquaticSiteType,"Type of aquatic site, includes lake, river or stream",string,NA,,"[LOV]","[FROM_AOS_SITE_TYPE]"
+zoo_fieldData,samplingImpractical,"Samples and/or measurements were not collected due to the indicated circumstance",string,NA,,"[LOV]","[LOV]"
+zoo_fieldData,zooDepth1,"Depth of the first sample for a composite lake zooplankton sample",real,meter,,"[ASCII][GREATER_THAN (0)][LESS_THAN_OR_EQUAL_TO (30)]","[GREATER_THAN (0)][LESS_THAN_OR_EQUAL_TO (30)][IF(IS_BLANK(samplingImpractical), WARN]"
+zoo_fieldData,eventID,"An identifier for the set of information associated with the event, which includes information about the place and time of the event",string,NA,,"MATCH_REGULAR_EXPRESSION('(?i)[A-Z]{4}.20[0-9]{2}(0[1-9]|1[012])(0[1-9]|1[0-9]|2[0-9]|3[01])')","[SITE & \.\" & startDate(YYYYMMDD)]""
+zoo_perTaxon,locationID,"Identifier for location where sample was collected",string,NA,"[DERIVE_FROM_SAMPLE_TREE('zoo_fieldData_in.sampleID' OR 'audit_sample')]","[NAMED_LOCATION_TYPE('AOS outlet named location type' OR 'AOS inlet named location type' OR 'AOS buoy named location type' OR 'External Lab')]",
+zoo_perTaxon,subspecies,"The subspecies (infraspecific name below the rank of infraspecific epithet) of the scientific name applied to the taxon",string,NA,,"[ASCII]",
+zoo_perTaxon,dataQF,"Data quality flag",string,NA,,"[ASCII]",
+zoo_perTaxon,nauplii,"Indication of whether the zooplankton specimen is nauplii",string,NA,,"[LOV]",
+zoo_perTaxon,identifiedBy,"An identifier for the technician who identified the specimen",string,NA,,"[REQUIRE]",
+zoo_perTaxon,subkingdom,"The scientific name of the subkingdom in which the taxon is classified",string,NA,,"[ASCII]",
+zoo_perTaxon,identificationReferences,"A list of sources (concatenated and semicolon separated) used to derive the specific taxon concept; including field guide editions, books, or versions of NEON keys used",string,NA,,"[IF(targetTaxaPresent='Y'), REQUIRE]",
+zoo_perTaxon,infraorder,"The scientific name of the infraorder in which the taxon is classified",string,NA,,"[ASCII]",
+zoo_perTaxon,adjCountPerBottle,"Count of individuals of the given taxon, multiplied to the volume per bottle to account for lab subsampling",real,number,"[individualCount * zooVolumePerBottle / zooSubsampleVolume]","[GREATER_THAN_OR_EQUAL_TO(individualCount)]",
+zoo_perTaxon,zooMinimumLength,"Minimum length of individuals in zooplankton taxonomic group subsample",real,millimeter,,"[GREATER_THAN (0)][LESS_THAN_OR_EQUAL_TO (40)]",
+zoo_perTaxon,subphylum,"The scientific name of the subphylum in which the taxon is classified",string,NA,,"[ASCII]",
+zoo_perTaxon,identifiedDate,"Date on which the sample, individual, or specimen was identified",dateTime,NA,"[CONVERT_TO_UTC(laboratoryName)]","[GREATER_THAN_OR_EQUAL_TO (collectDate)][LESS_THAN_OR_EQUAL_TO (NOW + 24hr)]",
+zoo_perTaxon,sampleCondition,"Condition of a sample",string,NA,,"[REQUIRE][LOV]",
+zoo_perTaxon,order,"The scientific name of the order in which the taxon is classified",string,NA,,"[ASCII]",
+zoo_perTaxon,distinctTaxon,"Taxon is known to be distinct within the sample, used for species richness metrics",string,NA,,"[LOV]",
+zoo_perTaxon,class,"The scientific name of the class in which the taxon is classified",string,NA,,"[ASCII]",
+zoo_perTaxon,genus,"The scientific name of the genus in which the organism is classified",string,NA,,"[ASCII]",
+zoo_perTaxon,sampleFate,"Fate of a sample",string,NA,"[DEFAULT_TO('active')]","[ASCII]",
+zoo_perTaxon,taxonDatabaseID,"Unique identifier for the taxon within the database",string,NA,,"[ASCII]",
+zoo_perTaxon,startDate,"The start date-time or interval during which an event occurred",dateTime,NA,"[DERIVE_FROM_SAMPLE_TREE('zoo_fieldData_in.sampleID' OR 'audit_sample')]",,
+zoo_perTaxon,tribe,"The scientific name of the tribe in which the taxon is classified",string,NA,,"[ASCII]",
+zoo_perTaxon,infraphylum,"The scientific name of the infraphylum in which the taxon is classified",string,NA,,"[ASCII]",
+zoo_perTaxon,uid,"Unique ID within NEON database; an identifier for the record",string,NA,"[CREATE_UID]",,
+zoo_perTaxon,subfamily,"The scientific name of the subfamily in which the organism is classified",string,NA,,"[ASCII]",
+zoo_perTaxon,superfamily,"The scientific name of the superfamily in which the taxon is classified",string,NA,,"[ASCII]",
+zoo_perTaxon,infraclass,"The scientific name of the infraclass in which the taxon is classified",string,NA,,"[ASCII]",
+zoo_perTaxon,notSubsampled,"Subsampling was not performed (for example, due to relative taxon abundance or rareness within a sample)",string,NA,,"[LOV]",
+zoo_perTaxon,scientificName,"Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",string,NA,,"[ELEMENT_OF('MACROINVERTEBRATE', 'scientificName', 'F')]",
+zoo_perTaxon,targetTaxaPresent,"Indicator of whether the sample contained individuals of the target taxa",string,NA,"[IF(IS_NOT_BLANK(scientificName)), DEFAULT_TO('Y')]","[IF(IS_BLANK(scientificName)), REQUIRE][LOV]",
+zoo_perTaxon,infrakingdom,"The scientific name of the infrakingdom in which the taxon is classified",string,NA,,"[ASCII]",
+zoo_perTaxon,internalLabID,"Internal identifier used by the external facility",string,NA,,"[ASCII]",
+zoo_perTaxon,subsampleType,"Indicates type of subsample generated",string,NA,,"[LOV]",
+zoo_perTaxon,family,"The scientific name of the family in which the taxon is classified",string,NA,,"[ASCII]",
+zoo_perTaxon,collectDate,"Date of the collection event",dateTime,NA,"[DERIVE_FROM_SAMPLE_TREE('zoo_fieldData_in.sampleID' OR 'audit_sample')]",,
+zoo_perTaxon,laboratoryName,"Name of the laboratory or facility that is processing the sample",string,NA,"[DEFAULT_TO_LAB_LOGGED_IN]","[NAMED_LOCATION_TYPE('External Lab')]",
+zoo_perTaxon,morphospeciesID,"Identifier for morphospecies",string,NA,,"[ASCII]",
+zoo_perTaxon,taxonDatabaseName,"Name of the taxonomic database",string,NA,,"[LOV]",
+zoo_perTaxon,specificEpithet,"The specific epithet (second part of the species name) of the scientific name applied to the taxon",string,NA,,"[ASCII]",
+zoo_perTaxon,individualCount,"Number of individuals of the same type",unsigned integer,number,,"[REQUIRE][GREATER_THAN (0)][LESS_THAN_OR_EQUAL_TO (2000)]",
+zoo_perTaxon,subclass,"The scientific name of the subclass in which the taxon is classified",string,NA,,"[ASCII]",
+zoo_perTaxon,identificationRemarks,"Comments or notes about the identification",string,NA,,"[ASCII][IF sampleCondition = 'other (specified in remarks)', REQUIRE] [IF taxonDatabaseName ='other (specified in remarks)', REQUIRE]",
+zoo_perTaxon,qcEnumerationDifference,"Percent difference in enumeration (PDE) between the first taxonomist and the second taxonomist for the same sample",real,percent,,"[GREATER_THAN_OR_EQUAL_TO(1)][LESS_THAN_OR_EQUAL_TO(100)]",
+zoo_perTaxon,sampleID,"Identifier for sample",string,NA,,"[REQUIRE][EXISTS]",
+zoo_perTaxon,subgenus,"The scientific name of the subgenus in which the taxon is classified. Values should include the genus to avoid homonym confusion",string,NA,,"[ASCII]",
+zoo_perTaxon,suborder,"The scientific name of the suborder in which the taxon is classified",string,NA,,"[ASCII]",
+zoo_perTaxon,indeterminateSpecies,"Sample contains specimen(s) not well-described in the literature, not all taxa for a group are included in the literature, or observed characters are such that they do not fit described taxa. See accompanying identificationRemarks",string,NA,,"[LOV]",
+zoo_perTaxon,referencePhotoCode,"Barcode of a reference photo",string,NA,,"[ASCII]",
+zoo_perTaxon,subtribe,"The scientific name of the subtribe in which the taxon is classified",string,NA,,"[ASCII]",
+zoo_perTaxon,sampleCode,"Barcode of a sample",string,NA,,"[ASCII]",
+zoo_perTaxon,zooSubsampleVolume,"Volume of zooplankton subsample analyzed",real,milliliter,"[IF(notSubsampled='Y'), zooVolumePerBottle]","[REQUIRE][GREATER_THAN (0)][LESS_THAN_OR_EQUAL_TO (zooVolumePerBottle)]",
+zoo_perTaxon,identificationQualifier,"A standard term to express the determiner's doubts about the Identification",string,NA,,"[LOV]",
+zoo_perTaxon,superphylum,"The scientific name of the superphylum in which the taxon is classified",string,NA,,"[ASCII]",
+zoo_perTaxon,zooVolumePerBottle,"Volume of zooplankton subsample per bottle",real,milliliter,,"[REQUIRE][GREATER_THAN (0)][LESS_THAN_OR_EQUAL_TO (2000)]",
+zoo_perTaxon,testProtocolVersion,"The protocol version used to test the sample",string,NA,,"[REQUIRE][LOV]",
+zoo_perTaxon,referencePhotoID,"Unique identifier for the photo associated with the reference collection",string,NA,,"[MIGHT_EXIST][ASCII]",
+zoo_perTaxon,kingdom,"The scientific name of the kingdom in which the taxon is classified",string,NA,,"[ASCII]",
+zoo_perTaxon,phylum,"The scientific name of the phylum or division in which the taxon is classified",string,NA,,"[IF(targetTaxaPresent='Y'), REQUIRE]",
+zoo_perTaxon,qcTaxonomicDifference,"Percent taxonomic difference (PTD) between the first taxonomist and the second taxonomist for the same sample",real,percent,,"[GREATER_THAN_OR_EQUAL_TO(1)][LESS_THAN_OR_EQUAL_TO(100)]",
+zoo_perTaxon,infraspecificEpithet,"The infraspecific epithet (scientific name below the rank of species) of the scientific name applied to the taxon",string,NA,,,
+zoo_perTaxon,zooMaximumLength,"Maximum length of individuals in zooplankton taxonomic group subsample",real,millimeter,,"[GREATER_THAN_OR_EQUAL_TO (zooMinimumLength)][LESS_THAN_OR_EQUAL_TO (40)]",
+zoo_perTaxon,zooMeanLength,"Mean length of individuals in zooplankton taxonomic group subsample",real,millimeter,,"[IF(targetTaxaPresent='Y' & sampleCondition='condition OK'), REQUIRE][GREATER_THAN_OR_EQUAL_TO (zooMinimumLength)][LESS_THAN_OR_EQUAL_TO (zooMaximumLength)]",
+zoo_perTaxon,internalLabName,"Name of internal laboratory or facility that is processing the sample",string,NA,,"[LOV]",
+zoo_perTaxon,qcChecked,"Whether or not QC procedure was performed",string,NA,,"[REQUIRE][LOV]",
+zoo_perTaxon,superorder,"The scientific name of the superorder in which the taxon is classified",string,NA,,"[ASCII]",
+zoo_perTaxon,superclass,"The scientific name of the superclass in which the taxon is classified",string,NA,,"[ASCII]",
+zoo_perTaxon,zooWidth,"Mean width of individuals in zooplankton taxonomic group subsample",real,millimeter,,"[GREATER_THAN (0)][LESS_THAN_OR_EQUAL_TO (40)]",
+zoo_perVial,scientificName,"Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",string,NA,,"[ELEMENT_OF('MACROINVERTEBRATE', 'scientificName', 'F')]",
+zoo_perVial,uid,"Unique ID within NEON database; an identifier for the record",string,NA,"[CREATE_UID]",,
+zoo_perVial,referenceFate,"Fate of a reference sample",string,NA,"[DEFAULT_TO('active')]","[ASCII]",
+zoo_perVial,sampleFate,"Fate of a sample",string,NA,"[DEFAULT_TO('active')]","[ASCII]",
+zoo_perVial,sampleCode,"Barcode of a sample",string,NA,,"[ASCII]",
+zoo_perVial,referenceID,"Unique identifier associated with the reference collection",string,NA,,"[MIGHT_EXIST][ASCII]",
+zoo_perVial,morphospeciesID,"Identifier for morphospecies",string,NA,,"[ASCII]",
+zoo_perVial,referenceCode,"Barcode of a reference sample",string,NA,,"[ASCII]",
+zoo_perVial,dataQF,"Data quality flag",string,NA,,"[ASCII]",
+zoo_perVial,collectDate,"Date of the collection event",dateTime,NA,"[DERIVE_FROM_SAMPLE_TREE('zoo_fieldData_in.sampleID' OR 'audit_sample')]",,
+zoo_perVial,referenceCount,"Number of individuals removed from this sample and placed in reference collection",unsigned integer,number,,"[GREATER_THAN (0)][LESS_THAN_OR_EQUAL_TO (20)]",
+zoo_perVial,laboratoryName,"Name of the laboratory or facility that is processing the sample",string,NA,"[DEFAULT_TO_LAB_LOGGED_IN]","[ASCII]",
+zoo_perVial,startDate,"The start date-time or interval during which an event occurred",dateTime,NA,"[DERIVE_FROM_SAMPLE_TREE('zoo_fieldData_in.sampleID' OR 'audit_sample')]",,
+zoo_perVial,locationID,"Identifier for location where sample was collected",string,NA,"[DERIVE_FROM_SAMPLE_TREE('zoo_fieldData_in.sampleID' OR 'audit_sample')]","[NAMED_LOCATION_TYPE('AOS outlet named location type' OR 'AOS inlet named location type' OR 'AOS buoy named location type' OR 'External Lab')]",
+zoo_perVial,sampleID,"Identifier for sample",string,NA,,"[REQUIRE][EXISTS]",

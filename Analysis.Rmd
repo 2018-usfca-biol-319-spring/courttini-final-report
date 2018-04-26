@@ -1,6 +1,6 @@
 ---
-title: "Analysis Report 2: NEON Mosquito Trap Data"
-author: "Don Francisco"
+title: "Final Report"
+author: "Courtney Lopez"
 date: "4/3/2018"
 bibliography: references.bib
 csl: ecology.csl
@@ -45,6 +45,25 @@ library("tidyr")
 library("ggplot2")
 library("readr")
 ```
+
+```{r read-in-dataset}
+# this is the information on location of zooplankton caught
+zoo_data <- read_csv("filesToStack20219/stackedFiles/zoo_fieldData.csv")
+
+# this is the info about the taxonomic identity of zooplankton found
+zoo_tax <- read_csv("filesToStack20219/stackedFiles/zoo_taxonomyProcessed.csv")
+```
+
+```{r combine-datasets}
+# this is the combined data from two sets
+zoo_all <- zoo_data %>%
+  left_join(zoo_tax, by = "siteID")
+```
+
+```{r}
+
+```
+
 
 In addition to a minimum of 5-10 figures/tables (and associated captions), you should include sufficient text in this section to describe what your findings were. Remember that in the Results section you just describe what you found, but you don't interpret it - that happens in the Discussion. 2-3 pages.
 
