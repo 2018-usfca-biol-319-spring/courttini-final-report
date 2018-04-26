@@ -60,10 +60,61 @@ zoo_all <- zoo_data %>%
   left_join(zoo_tax, by = "siteID")
 ```
 
-```{r}
+```{r plot-usa-zoo-sites}
+usa_map <- map_data("usa")
 
+points_with_lat_long <- zoo_all %>%
+  filter(!is.na(decimalLatitude)) %>%
+  filter(individualCount > 0) %>%
+  group_by(siteID) %>%
+  summarize(total_count = sum(individualCount),
+            mean_lat = mean(decimalLatitude),
+            mean_long = mean(decimalLongitude))
+
+ggplot() +
+  geom_polygon(data = usa_map,
+               aes(x = long,
+                   y = lat,
+                   group = group),
+               fill = "dark blue") +
+  coord_fixed(1.3) +
+  geom_point(data = points_with_lat_long,
+           aes(x = mean_long,
+               y = mean_lat,
+               size = total_count)) +
+  ggtitle("Sites with Zooplankton")
 ```
 
+```{r boxplot-abundance}
+boxplot(individualCount ~ siteID, data = zoo_all,
+        main = "Abundance of Zooplankton at each Site",
+        xlab = "Site ID", ylab = "Individual Count")
+```
+
+```{r}
+barc <- zoo_all %>%
+  filter(siteID == "BARC") %>%
+  group_by(scientificName) %>%
+  tally() %>%
+  arrange(desc(n))
+```
+
+```{r}
+ggplot(data = barc,
+       aes(x = scientificName, y = n)) +
+  geom_point() +
+  ggtitle("Amount of males and females in
+          deciduous forest at five NEON sites")
+```
+
+
+ggplot(aes(x = nlcdClass, y = individualCount)) +
+ +  geom_jitter(aes(color = nlcdClass), alpha = 0.01) +
+ +  geom_boxplot(alpha = 0.5) +
+ + scale_y_log10() +
+ + ylab("Number of Mosquitos Captured") +
+ + xlab("Vegetation Type") +
+ + ggtitle("Vegetation Type vs Number of Mosquitos Captured")
 
 In addition to a minimum of 5-10 figures/tables (and associated captions), you should include sufficient text in this section to describe what your findings were. Remember that in the Results section you just describe what you found, but you don't interpret it - that happens in the Discussion. 2-3 pages.
 
