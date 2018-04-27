@@ -91,7 +91,7 @@ boxplot(individualCount ~ siteID, data = zoo_all,
         xlab = "Site ID", ylab = "Individual Count")
 ```
 
-```{r}
+```{r maybe-keep}
 barc <- zoo_all %>%
   filter(siteID == "BARC") %>%
   group_by(scientificName) %>%
@@ -107,14 +107,25 @@ ggplot(data = barc,
           deciduous forest at five NEON sites")
 ```
 
+```{r for-reference}
+ggplot(zoo_all, aes(x = scientificName,
+                    y = zooMeanLength)) +
+  geom_boxplot() +
+  theme(axis.text.x=element_text(angle=90, hjust=1)) 
+```
 
-ggplot(aes(x = nlcdClass, y = individualCount)) +
- +  geom_jitter(aes(color = nlcdClass), alpha = 0.01) +
- +  geom_boxplot(alpha = 0.5) +
- + scale_y_log10() +
- + ylab("Number of Mosquitos Captured") +
- + xlab("Vegetation Type") +
- + ggtitle("Vegetation Type vs Number of Mosquitos Captured")
+```{r}
+comb_data <- zoo_all %>%
+  filter(scientificName %in% c("Chaoborus sp.",
+         "Heterocope septentrionalis",
+         "Leptodora kindtii")) %>%
+  group_by(siteID, scientificName) %>%
+  tally() %>%
+  arrange(desc(n))
+```
+
+
+
 
 In addition to a minimum of 5-10 figures/tables (and associated captions), you should include sufficient text in this section to describe what your findings were. Remember that in the Results section you just describe what you found, but you don't interpret it - that happens in the Discussion. 2-3 pages.
 
