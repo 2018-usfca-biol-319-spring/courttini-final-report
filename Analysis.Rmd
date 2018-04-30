@@ -44,6 +44,7 @@ library("dplyr")
 library("tidyr")
 library("ggplot2")
 library("readr")
+library("lubridate")
 ```
 
 ```{r read-in-dataset}
@@ -82,7 +83,7 @@ ggplot() +
            aes(x = mean_long,
                y = mean_lat,
                size = total_count)) +
-  ggtitle("Sites with Zooplankton")
+  ggtitle("Sites with Zooplankton Abundance")
 ```
 
 ```{r boxplot-abundance}
@@ -91,38 +92,47 @@ boxplot(individualCount ~ siteID, data = zoo_all,
         xlab = "Site ID", ylab = "Individual Count")
 ```
 
-```{r maybe-keep}
-barc <- zoo_all %>%
-  filter(siteID == "BARC") %>%
+```{r filter-most-abundant}
+most_abundant_spp <- zoo_all %>%
   group_by(scientificName) %>%
-  tally() %>%
-  arrange(desc(n))
+  summarize(sum_indiv = sum(individualCount, na.rm = TRUE)) %>%
+  arrange(desc(sum_indiv)) %>%
+  head() %>%
+  pull(scientificName)
 ```
 
 ```{r}
-ggplot(data = barc,
-       aes(x = scientificName, y = n)) +
-  geom_point() +
-  ggtitle("Amount of males and females in
-          deciduous forest at five NEON sites")
+zoo_all %>%
+  filter(scientificName %in% most_abundant_spp) %>%
+  filter(year(startDate) == 2017) %>%
+  ggplot(aes(x = as.POSIXct(startDate),
+             y = individualCount,
+             color = scientificName)) +
+    geom_point(alpha = 0.1) +
+    geom_smooth(method = "loess",
+                se = FALSE) +
+    scale_y_log10()
+```
+
+```{r}
+boxplot
+```
+
+
+
+
+```{r statistic}
+
 ```
 
 ```{r for-reference}
 ggplot(zoo_all, aes(x = scientificName,
                     y = zooMeanLength)) +
   geom_boxplot() +
-  theme(axis.text.x=element_text(angle=90, hjust=1)) 
+  theme(axis.text.x = element_text(angle=90, hjust=1)) 
 ```
 
-```{r}
-comb_data <- zoo_all %>%
-  filter(scientificName %in% c("Chaoborus sp.",
-         "Heterocope septentrionalis",
-         "Leptodora kindtii")) %>%
-  group_by(siteID, scientificName) %>%
-  tally() %>%
-  arrange(desc(n))
-```
+
 
 
 
