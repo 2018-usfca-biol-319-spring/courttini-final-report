@@ -160,12 +160,10 @@ zoo_all %>%
 
 ```{r statistic}
 zoo_all %>%
-  filter(scientificName %in% most_abundant_spp) %>%
-  filter(year(startDate) == 2017) %>%
+  #filter(scientificName %in% most_abundant_spp) %>%
+  #filter(year(startDate) == 2017) %>%
   filter(scientificName == "Brachionus havanaensis") %>%
-  group_by(siteID, elevation)
-  summarize(mean_count = mean(individualCount, na.rm = TRUE)) %>%
-  lm(mean_count ~ elevation, data = .) %>%
+  lm(individualCount ~ elevation, data = .) %>%
   summary()
 ```
 
