@@ -101,7 +101,7 @@ most_abundant_spp <- zoo_all %>%
   pull(scientificName)
 ```
 
-```{r}
+```{r most-abund-timepoint}
 zoo_all %>%
   filter(scientificName %in% most_abundant_spp) %>%
   filter(year(startDate) == 2017) %>%
@@ -114,16 +114,45 @@ zoo_all %>%
     scale_y_log10()
 ```
 
-```{r}
-boxplot
+```{r geomplot-havanaensis}
+zoo_all %>%
+  filter(scientificName %in% most_abundant_spp) %>%
+  filter(year(startDate) == 2017) %>%
+  filter(scientificName == "Brachionus havanaensis") %>%
+  ggplot(aes(x = as.POSIXct(startDate),
+             y = individualCount,
+             color = scientificName)) +
+    geom_point(alpha = 0.1) +
+    geom_smooth(method = "loess",
+                se = FALSE) +
+    scale_y_log10()
 ```
 
-
-
+```{r geomplot-ele-havanaensis}
+zoo_all %>%
+  filter(scientificName %in% most_abundant_spp) %>%
+  filter(year(startDate) == 2017) %>%
+  filter(scientificName == "Brachionus havanaensis") %>%
+  ggplot(aes(x = as.POSIXct(startDate),
+             y = elevation,
+             color = scientificName)) +
+    geom_point(alpha = 0.1) +
+    geom_smooth(method = "loess",
+                se = FALSE)
+```
 
 ```{r statistic}
-
+zoo_all %>%
+  filter(scientificName %in% most_abundant_spp) %>%
+  filter(year(startDate) == 2017) %>%
+  filter(scientificName == "Brachionus havanaensis") %>%
+  group_by(siteID, elevation)
+  summarize(mean_count = mean(individualCount, na.rm = TRUE)) %>%
+  lm(mean_count ~ elevation, data = .) %>%
+  summary()
 ```
+
+
 
 ```{r for-reference}
 ggplot(zoo_all, aes(x = scientificName,
