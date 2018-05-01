@@ -111,7 +111,8 @@ zoo_all %>%
     geom_point(alpha = 0.1) +
     geom_smooth(method = "loess",
                 se = FALSE) +
-    scale_y_log10()
+  scale_y_log10() +
+  ggtitle("Individual Count of Species in the Year 2017") 
 ```
 
 ```{r geomplot-havanaensis}
@@ -125,7 +126,8 @@ zoo_all %>%
     geom_point(alpha = 0.1) +
     geom_smooth(method = "loess",
                 se = FALSE) +
-    scale_y_log10()
+  scale_y_log10() +
+  ggtitle("Individual Count of Brachionus havanaensis 2017")
 ```
 
 ```{r geomplot-ele-havanaensis}
@@ -138,7 +140,22 @@ zoo_all %>%
              color = scientificName)) +
     geom_point(alpha = 0.1) +
     geom_smooth(method = "loess",
-                se = FALSE)
+                se = FALSE) +
+  ggtitle("Elevation of Brachionus havanaensis 2017")
+```
+
+```{r geomplot-mean-length}
+zoo_all %>%
+  filter(scientificName %in% most_abundant_spp) %>%
+  filter(year(startDate) == 2017) %>%
+  filter(scientificName == "Brachionus havanaensis") %>%
+  ggplot(aes(x = as.POSIXct(startDate),
+             y = zooMeanLength,
+             color = scientificName)) +
+    geom_point(alpha = 0.1) +
+    geom_smooth(method = "loess",
+                se = FALSE) +
+  ggtitle("Mean Length of Brachionus havanaensis 2017")
 ```
 
 ```{r statistic}
