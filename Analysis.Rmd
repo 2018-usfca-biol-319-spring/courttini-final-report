@@ -161,12 +161,11 @@ zoo_all %>%
 ```{r statistic}
 zoo_all %>%
   #filter(scientificName %in% most_abundant_spp) %>%
-  #filter(year(startDate) == 2017) %>%
+  filter(year(startDate) == 2017) %>%
   filter(scientificName == "Brachionus havanaensis") %>%
   lm(individualCount ~ elevation, data = .) %>%
   summary()
 ```
-
 
 
 ```{r for-reference}
