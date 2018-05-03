@@ -50,7 +50,6 @@ The type of sampler used to collect zooplankton was determined by water depth at
 
 I will be using R studio to conduct statistics on the Zooplankton data. A linear regression will be used to determine if there is a correlation between elevation and individual count of the species *Brachionus havanaensis*. As well as if there is a correlation between the season/date the sample was collected and the abundance. 
 
-
 # Results
 
 ## Subsections are ok in the results section too
@@ -150,6 +149,15 @@ zoo_all %>%
   ggtitle("Individual Count of Brachionus havanaensis 2017")
 ```
 
+```{r statistic-date}
+zoo_all %>%
+  #filter(scientificName %in% most_abundant_spp) %>%
+  filter(year(startDate) == 2017) %>%
+  filter(scientificName == "Brachionus havanaensis") %>%
+  lm(individualCount ~ as.POSIXct(startDate), data = .) %>%
+  summary()
+```
+
 ```{r geomplot-ele-havanaensis}
 zoo_all %>%
   filter(scientificName %in% most_abundant_spp) %>%
@@ -162,6 +170,15 @@ zoo_all %>%
     geom_smooth(method = "loess",
                 se = FALSE) +
   ggtitle("Elevation of Brachionus havanaensis 2017")
+```
+
+```{r statistic-elevation}
+zoo_all %>%
+  #filter(scientificName %in% most_abundant_spp) %>%
+  filter(year(startDate) == 2017) %>%
+  filter(scientificName == "Brachionus havanaensis") %>%
+  lm(individualCount ~ elevation, data = .) %>%
+  summary()
 ```
 
 ```{r geomplot-mean-length}
@@ -178,31 +195,7 @@ zoo_all %>%
   ggtitle("Mean Length of Brachionus havanaensis 2017")
 ```
 
-```{r statistic}
-zoo_all %>%
-  #filter(scientificName %in% most_abundant_spp) %>%
-  filter(year(startDate) == 2017) %>%
-  filter(scientificName == "Brachionus havanaensis") %>%
-  lm(individualCount ~ elevation, data = .) %>%
-  summary()
-```
-
-```{r}
-#see if seasons have anything to do with abundance (individual count)
-
-
-```
-
-
-
 ```{r for-reference}
-ggplot(zoo_all, aes(x = scientificName,
-                    y = zooMeanLength)) +
-  geom_boxplot() +
-  theme(axis.text.x = element_text(angle=90, hjust=1)) 
-```
-
-```{r}
 zoo_all %>%
   filter(year(startDate) == 2017) %>%
 ggplot(aes(x = scientificName,
