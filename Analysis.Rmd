@@ -1,5 +1,5 @@
 ---
-title: "Final Report"
+title: "Final Report: Zooplakton Abundance 2017"
 author: "Courtney Lopez"
 date: "4/3/2018"
 bibliography: references.bib
@@ -123,7 +123,7 @@ zoo_all %>%
 ggplot(aes(x = scientificName,
            y = siteID)) +
   geom_boxplot() +
-  theme(axis.text.x = element_text(angle=90, hjust=1))
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
 This figure shows the numerous of zooplackton species found at the seven lake sites.  
@@ -150,7 +150,7 @@ zoo_all %>%
     geom_smooth(method = "loess",
                 se = FALSE) +
   scale_y_log10() +
-  ggtitle("Individual Count of Most Abundant Species in the Year 2017") 
+  ggtitle("Individual Count of Most Abundant Species in the Year 2017")
 ```
 
 This figure looks at individual count from 2017 of the most abundant species. These six species are types of zooplakton collected. It looks at when the sample was taken, and its abundance at that time.  
