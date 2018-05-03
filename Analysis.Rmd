@@ -52,10 +52,6 @@ I will be using R studio to conduct statistics on the Zooplankton data. A linear
 
 # Results
 
-## Subsections are ok in the results section too
-
-Add a number of code chunks in the Results section. These should read in, subset and plot the data as needed (no need to save any figures to pdf, since they will be put into the rendered document when you click 'knit'), and, for any hypotheses that you want to test, an appropriate statistical test. You should have at least 5-10 figures and/or tables in this section, which you use to test your hypotheses against the dataset. 
-
 ```{r load-packages}
 # If you add any additional packages here, make sure they are
 # also listed in the DESCRIPTION file
