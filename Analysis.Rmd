@@ -17,19 +17,39 @@ Delete this placeholder text, and replace it with your introduction text. You sh
 
 # Methods
 
-Describe where the data came from, including the sets of sites you are comparing, how the data you are using were collected in the field, some information about those sites and why you chose them, and how you are analyzing them (e.g. using R to visualize the results and the statistical tests you will use).
+The Zooplankton collection data came from the NEON website data portal. This data product contains the quality-controlled, native sampling resolution data and metadata from NEON's aquatic zooplankton collection protocol, as well as associated taxonomic, morphometric, and count analyses data provided by a contracted lab.  This data product shows the collection of zooplankton from water column samples in lakes. The collection system used was the Aquatic Observation System (AOS).
 
 ## Site Locations and Descriptions
 
-Add text here. In this section instead of first person (I/we), use 'NEON', or 'NEON scientists', since you'll just be describing what they did.
+The seven NEON aquatic lake sites where zooplankton collection occured are Toolik (Tool), Barco Lake (BARC), Suggs Lake (SUGG), Prairie Lake at Dakota Coteau Field (PRLA), Prairie Pothole (PRPO), Crampton Lake (CRAM), and Little Rock Lake (LIRO).
+
+The first site TOOL is a core terrestrial site located in Alaska. The site host was the Bureau of Land Management. The data status for this site is only partially available, so not much is known from this site. 
+
+The second site BARC is a core terrestrial site as well. This site is located in Southeast Florida and the site host is the University of Flordia Foundation. Barco Lake is an oligotrophic acidic (pH 4.5) seepage lake, which means it has low nutrient levels and the landscape is formed of soluble rocks. This site is estimated to be at least 1000 years old. The primary vegetation at this site is forest spaced with pine trees and deciduous oaks. Fire is a dominant facotr of the ecology at this site. This site is important breeding areas for terrestrial amphibians including the gopher frog. The lake is a typical lentic water body without a lot of water coming in or out. Water may be largely obtained from groundwater seepage about 8 inches per year. The lake is clear with dissolved organic carbon and a chemistry fluctuation that is highly influenced by rainwater and groundwater interactions. 
+
+The third site SUGG is a core terrestrial site located in Southeat Flordia as well. It also has the site host being University of Florida Foundation. The lake is classified as a Marsh lake with major plant communities that surround it. This late is also a seepage lake like the BARC site, in which the lakes are underlain by the Floridan Aquifer dominated by a limestone and dolomite geology. The primary vegetation that surrounds this lake includes cypress swamps and old pastures. There is an adjacent hardwood forest as well with species that include of the Water Oak, Bald Cycpress and Sweetgum. The site contains a dense population of amphibians like the salamanders. The water flow from this lake is primarily surface water dominated. This lake is classified with water that comes from groundwater, local aquifer, and local surface and subsurface flow through the wetland complex. Similar to the BARC site there is a strong link between the lake and the groundwater. 
+
+The fourth site PRLA is a relocatable aquatic site in the Northern Plains od North Dakota. The site host is the State of North Dakota Land Trust. Just like the first site, the data status for this site is only partially available, so not much is known from this site.
+
+The fifth site PRPO is a core aquatic site also in the Northern Plains of North Dakota. The site host is the U.S. Geological Survey and U.S. Fish and Wildlife Service. This site also has a data status that is only partially available, so not much is known from this site. 
+
+The sixth site CRAM is a core aquatic site located at the Great Lakes in Wisconsin. The site host is the University of Notre Dame Environmental Research Center. The overall vegetation of this site is hardwood forests as well as open water areas and wetlands. The lake at this site is also a seepage lake, and is primarily rain, and groundwater fed. This site however has a slowly flowing inlet from a bog on the northeast edge. The lake is mosly completely covered with ice from November to March. The composition of the lake includes organic muck, silt, and sand. The lake has clear water, and is oligotophic like the BARC site. The pH of the water is neutral (6.5) and is very sensitive to to slight changes of acidity. 
+
+The last site where zooplankton was collected is LIRO. This site is a relocatable aquatic site at the Great Lakes in Wisconsin. The site host is the Wisconsin Department of Natural Resources. Just like three other sites, this site also has a data status that is only partially available, so not much is known from this site.
+
 
 ## Field Sampling Design
 
-Add text here. Add text here. In this section instead of first person (I/we), use 'NEON', or 'NEON scientists', since you'll just be describing what they did.
+Neon scientists' collected Zooplankton samples three times per year at the seven lake sites during biology bount windows, during the seasons of spring, summer, and fall. The three different times periods are significant for various reasons. Sample bout 1 is usually right after the winter season when there is a period of rapid biomass accumulation. Sample bout 2 is during the middle of summer and sample bout 3 happens in the late growing season during leaf-fall. Sampling at each site is completed within a single day for each bout. Zooplankton at NEON sites were sampled from the water column near the NEON sensor sets in lakes. Samples were collected near the inlet, outlet, and deepest sampling locations. This can be seen with the picture below from the NEON user Guide to Aquatic Zooplankton Collection.
+
+![](data/Screen Shot 2018-05-02 at 10.57.37 PM.png)
+
+The type of sampler used to collect zooplankton was determined by water depth at the location of the site. NEON scientists at locations deeper than 4 m are were sampled using a certical tow net, while locations shallower than 4 m were sampled using a Schindler-Patalas sampler. Up to three traps or samplers were used for the collection. The samplers used for zooplankton collection were designed by the NEON scientists to work by collecting a small amount of the water column at the site. The volume that was collected with a vertical tow net was the area of the tow net opening multiplied by the depth of the tow, multiplied by the number of tows composited in one sample. With the Schindler-Patalas trap there is a clear Lexan box that contains 12 L of water so the volume is 12 L times the number of traps that are in one sample. Once the samples were collected they were preserved in ETOH and sent to a laboratory for taconomic identification. 
 
 ## Data Analysis and Statistics
 
-Add text here. Here this is all your work, so 'I/we' is fine.
+I will be using R studio to conduct statistics on the Zooplankton data. A linear regression will be used to determine if there is a correlation between elevation and individual count of the species *Brachionus havanaensis*. As well as if there is a correlation between the season/date the sample was collected and the abundance. 
+
 
 # Results
 
@@ -167,6 +187,13 @@ zoo_all %>%
   summary()
 ```
 
+```{r}
+#see if seasons have anything to do with abundance (individual count)
+
+
+```
+
+
 
 ```{r for-reference}
 ggplot(zoo_all, aes(x = scientificName,
@@ -175,6 +202,14 @@ ggplot(zoo_all, aes(x = scientificName,
   theme(axis.text.x = element_text(angle=90, hjust=1)) 
 ```
 
+```{r}
+zoo_all %>%
+  filter(year(startDate) == 2017) %>%
+ggplot(aes(x = scientificName,
+           y = siteID)) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle=90, hjust=1))
+```
 
 
 
