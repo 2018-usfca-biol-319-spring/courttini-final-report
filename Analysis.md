@@ -11,22 +11,40 @@ Delete this placeholder text, and replace it with your introduction text. You sh
 Methods
 =======
 
-Describe where the data came from, including the sets of sites you are comparing, how the data you are using were collected in the field, some information about those sites and why you chose them, and how you are analyzing them (e.g. using R to visualize the results and the statistical tests you will use).
+The Zooplankton collection data came from the NEON website data portal. This data product contains the quality-controlled, native sampling resolution data and metadata from NEON's aquatic zooplankton collection protocol, as well as associated taxonomic, morphometric, and count analyses data provided by a contracted lab. This data product shows the collection of zooplankton from water column samples in lakes. The collection system used was the Aquatic Observation System (AOS).
 
 Site Locations and Descriptions
 -------------------------------
 
-Add text here. In this section instead of first person (I/we), use 'NEON', or 'NEON scientists', since you'll just be describing what they did.
+The seven NEON aquatic lake sites where zooplankton collection occured are Toolik (Tool), Barco Lake (BARC), Suggs Lake (SUGG), Prairie Lake at Dakota Coteau Field (PRLA), Prairie Pothole (PRPO), Crampton Lake (CRAM), and Little Rock Lake (LIRO).
+
+The first site TOOL is a core terrestrial site located in Alaska. The site host was the Bureau of Land Management. The data status for this site is only partially available, so not much is known from this site.
+
+The second site BARC is a core terrestrial site as well. This site is located in Southeast Florida and the site host is the University of Flordia Foundation. Barco Lake is an oligotrophic acidic (pH 4.5) seepage lake, which means it has low nutrient levels and the landscape is formed of soluble rocks. This site is estimated to be at least 1000 years old. The primary vegetation at this site is forest spaced with pine trees and deciduous oaks. Fire is a dominant facotr of the ecology at this site. This site is important breeding areas for terrestrial amphibians including the gopher frog. The lake is a typical lentic water body without a lot of water coming in or out. Water may be largely obtained from groundwater seepage about 8 inches per year. The lake is clear with dissolved organic carbon and a chemistry fluctuation that is highly influenced by rainwater and groundwater interactions.
+
+The third site SUGG is a core terrestrial site located in Southeat Flordia as well. It also has the site host being University of Florida Foundation. The lake is classified as a Marsh lake with major plant communities that surround it. This late is also a seepage lake like the BARC site, in which the lakes are underlain by the Floridan Aquifer dominated by a limestone and dolomite geology. The primary vegetation that surrounds this lake includes cypress swamps and old pastures. There is an adjacent hardwood forest as well with species that include of the Water Oak, Bald Cycpress and Sweetgum. The site contains a dense population of amphibians like the salamanders. The water flow from this lake is primarily surface water dominated. This lake is classified with water that comes from groundwater, local aquifer, and local surface and subsurface flow through the wetland complex. Similar to the BARC site there is a strong link between the lake and the groundwater.
+
+The fourth site PRLA is a relocatable aquatic site in the Northern Plains od North Dakota. The site host is the State of North Dakota Land Trust. Just like the first site, the data status for this site is only partially available, so not much is known from this site.
+
+The fifth site PRPO is a core aquatic site also in the Northern Plains of North Dakota. The site host is the U.S. Geological Survey and U.S. Fish and Wildlife Service. This site also has a data status that is only partially available, so not much is known from this site.
+
+The sixth site CRAM is a core aquatic site located at the Great Lakes in Wisconsin. The site host is the University of Notre Dame Environmental Research Center. The overall vegetation of this site is hardwood forests as well as open water areas and wetlands. The lake at this site is also a seepage lake, and is primarily rain, and groundwater fed. This site however has a slowly flowing inlet from a bog on the northeast edge. The lake is mosly completely covered with ice from November to March. The composition of the lake includes organic muck, silt, and sand. The lake has clear water, and is oligotophic like the BARC site. The pH of the water is neutral (6.5) and is very sensitive to to slight changes of acidity.
+
+The last site where zooplankton was collected is LIRO. This site is a relocatable aquatic site at the Great Lakes in Wisconsin. The site host is the Wisconsin Department of Natural Resources. Just like three other sites, this site also has a data status that is only partially available, so not much is known from this site.
 
 Field Sampling Design
 ---------------------
 
-Add text here. Add text here. In this section instead of first person (I/we), use 'NEON', or 'NEON scientists', since you'll just be describing what they did.
+Neon scientists' collected Zooplankton samples three times per year at the seven lake sites during biology bount windows, during the seasons of spring, summer, and fall. The three different times periods are significant for various reasons. Sample bout 1 is usually right after the winter season when there is a period of rapid biomass accumulation. Sample bout 2 is during the middle of summer and sample bout 3 happens in the late growing season during leaf-fall. Sampling at each site is completed within a single day for each bout. Zooplankton at NEON sites were sampled from the water column near the NEON sensor sets in lakes. Samples were collected near the inlet, outlet, and deepest sampling locations. This can be seen with the picture below from the NEON user Guide to Aquatic Zooplankton Collection.
+
+![](data/Screen%20Shot%202018-05-02%20at%2010.57.37%20PM.png)
+
+The type of sampler used to collect zooplankton was determined by water depth at the location of the site. NEON scientists at locations deeper than 4 m are were sampled using a certical tow net, while locations shallower than 4 m were sampled using a Schindler-Patalas sampler. Up to three traps or samplers were used for the collection. The samplers used for zooplankton collection were designed by the NEON scientists to work by collecting a small amount of the water column at the site. The volume that was collected with a vertical tow net was the area of the tow net opening multiplied by the depth of the tow, multiplied by the number of tows composited in one sample. With the Schindler-Patalas trap there is a clear Lexan box that contains 12 L of water so the volume is 12 L times the number of traps that are in one sample. Once the samples were collected they were preserved in ETOH and sent to a laboratory for taconomic identification.
 
 Data Analysis and Statistics
 ----------------------------
 
-Add text here. Here this is all your work, so 'I/we' is fine.
+I will be using R studio to conduct statistics on the Zooplankton data. A linear regression will be used to determine if there is a correlation between elevation and individual count of the species *Brachionus havanaensis*. As well as if there is a correlation between the season/date the sample was collected and the abundance.
 
 Results
 =======
@@ -57,7 +75,15 @@ library("dplyr")
 library("tidyr")
 library("ggplot2")
 library("readr")
+library("lubridate")
 ```
+
+    ## 
+    ## Attaching package: 'lubridate'
+
+    ## The following object is masked from 'package:base':
+    ## 
+    ##     date
 
 ``` r
 # this is the information on location of zooplankton caught
@@ -117,6 +143,8 @@ zoo_all <- zoo_data %>%
   left_join(zoo_tax, by = "siteID")
 ```
 
+*Figure 1*
+
 ``` r
 usa_map <- map_data("usa")
 ```
@@ -143,10 +171,14 @@ ggplot() +
            aes(x = mean_long,
                y = mean_lat,
                size = total_count)) +
-  ggtitle("Sites with Zooplankton")
+  ggtitle("Sites with Zooplankton Abundance")
 ```
 
 ![](Analysis_files/figure-markdown_github/plot-usa-zoo-sites-1.png)
+
+This figure shows the location of the seven sites being observed and their abundance of zooplakton captured at each site. The sites include, Toolik (Tool), Barco Lake (BARC), Suggs Lake (SUGG), Prairie Lake at Dakota Coteau Field (PRLA), Prairie Pothole (PRPO), Crampton Lake (CRAM), and Little Rock Lake (LIRO). Some sites are in the same area and the dot on the map represents more than one site.
+
+*Figure 2*
 
 ``` r
 boxplot(individualCount ~ siteID, data = zoo_all,
@@ -156,60 +188,174 @@ boxplot(individualCount ~ siteID, data = zoo_all,
 
 ![](Analysis_files/figure-markdown_github/boxplot-abundance-1.png)
 
-``` r
-comb_data <- zoo_all %>%
-  filter(scientificName %in% c("Chaoborus sp.",
-         "Heterocope septentrionalis",
-         "Leptodora kindtii")) %>%
-  group_by(siteID, scientificName) %>%
-  tally() %>%
-  arrange(desc(n))
-```
+This boxplot shows the individual count of zooplakton captured at each site.
+
+*Figure 3*
 
 ``` r
-elevation_data <- zoo_all %>%
-  filter(scientificName %in% c("Chaoborus sp.",
-         "Heterocope septentrionalis",
-         "Leptodora kindtii"))
-```
-
-``` r
-ggplot(elevation_data,
-       aes(x = factor(elevation),
-           y = individualCount,
-           fill = scientificName)) +
-  geom_col(position = position_fill())
-```
-
-![](Analysis_files/figure-markdown_github/unnamed-chunk-3-1.png)
-
-``` r
-boxplot(elevation ~ scientificName, data = elevation_data,
-        main = "Elevations of where greatest Mean Length found",
-        xlab = "Site ID", ylab = "Elevation")
-```
-
-![](Analysis_files/figure-markdown_github/unnamed-chunk-3-2.png)
-
-``` r
-ggplot(zoo_all, aes(x = scientificName,
-                    y = zooMeanLength)) +
+zoo_all %>%
+  filter(year(startDate) == 2017) %>%
+ggplot(aes(x = scientificName,
+           y = siteID)) +
   geom_boxplot() +
-  theme(axis.text.x = element_text(angle=90, hjust=1)) 
+  theme(axis.text.x = element_text(angle=90, hjust=1))
 ```
 
-    ## Warning: Removed 1488 rows containing non-finite values (stat_boxplot).
+![](Analysis_files/figure-markdown_github/species-seen-at-all-sites-1.png)
 
-![](Analysis_files/figure-markdown_github/for-reference-1.png)
+This figure shows the numerous of zooplackton species found at the seven lake sites.
 
 ``` r
-# elevation_data %>%
-#   summarize(mean_count = mean(n, na.rm = TRUE)) %>%
-#   lm(mean_count ~ elevation, data = .) %>%
-#   summary()
+most_abundant_spp <- zoo_all %>%
+  group_by(scientificName) %>%
+  summarize(sum_indiv = sum(individualCount, na.rm = TRUE)) %>%
+  arrange(desc(sum_indiv)) %>%
+  head() %>%
+  pull(scientificName)
 ```
 
-In addition to a minimum of 5-10 figures/tables (and associated captions), you should include sufficient text in this section to describe what your findings were. Remember that in the Results section you just describe what you found, but you don't interpret it - that happens in the Discussion. 2-3 pages.
+*Figure 4*
+
+``` r
+zoo_all %>%
+  filter(scientificName %in% most_abundant_spp) %>%
+  filter(year(startDate) == 2017) %>%
+  ggplot(aes(x = as.POSIXct(startDate),
+             y = individualCount,
+             color = scientificName)) +
+    geom_point(alpha = 0.1) +
+    geom_smooth(method = "loess",
+                se = FALSE) +
+  scale_y_log10() +
+  ggtitle("Individual Count of Most Abundant Species in the Year 2017") 
+```
+
+![](Analysis_files/figure-markdown_github/most-abund-timepoint-1.png)
+
+This figure looks at individual count from 2017 of the most abundant species. These six species are types of zooplakton collected. It looks at when the sample was taken, and its abundance at that time.
+
+*Figure 5*
+
+``` r
+zoo_all %>%
+  filter(scientificName %in% most_abundant_spp) %>%
+  filter(year(startDate) == 2017) %>%
+  filter(scientificName == "Brachionus havanaensis") %>%
+  ggplot(aes(x = as.POSIXct(startDate),
+             y = individualCount,
+             color = scientificName)) +
+    geom_point(alpha = 0.1) +
+    geom_smooth(method = "loess",
+                se = FALSE) +
+  scale_y_log10() +
+  ggtitle("Individual Count of Brachionus havanaensis 2017")
+```
+
+![](Analysis_files/figure-markdown_github/geomplot-havanaensis-1.png)
+
+This figure is a close up of one of the most abundant species *Brachionus havanaensis*. It shows the fluctuation of the amount of zooplakton caught and the time in which month it was collected. This also shows that this species is only seen between early May and late September.
+
+*Statistic 1*
+
+``` r
+zoo_all %>%
+  #filter(scientificName %in% most_abundant_spp) %>%
+  filter(year(startDate) == 2017) %>%
+  filter(scientificName == "Brachionus havanaensis") %>%
+  lm(individualCount ~ as.POSIXct(startDate), data = .) %>%
+  summary()
+```
+
+    ## 
+    ## Call:
+    ## lm(formula = individualCount ~ as.POSIXct(startDate), data = .)
+    ## 
+    ## Residuals:
+    ##    Min     1Q Median     3Q    Max 
+    ## -70.59 -63.53 -51.96  35.28 417.49 
+    ## 
+    ## Coefficients:
+    ##                         Estimate Std. Error t value Pr(>|t|)
+    ## (Intercept)            5.828e+02  1.654e+03   0.352    0.725
+    ## as.POSIXct(startDate) -3.423e-07  1.103e-06  -0.310    0.756
+    ## 
+    ## Residual standard error: 102.9 on 322 degrees of freedom
+    ## Multiple R-squared:  0.000299,   Adjusted R-squared:  -0.002806 
+    ## F-statistic: 0.09632 on 1 and 322 DF,  p-value: 0.7565
+
+This linear regression model shows that there is not a correlation between individual count of *Brachionus havanaensis* and the start date the sample was collected. The P value was greater than 0.05 (0.7565), so we accept the null hypothesis and conclude that this is not a significant relationship between zooplakton abundance and the time the sample was collected. The R-squared value (0.000299) indicates that the regression line does not fit the data.
+
+*Figure 6*
+
+``` r
+zoo_all %>%
+  filter(scientificName %in% most_abundant_spp) %>%
+  filter(year(startDate) == 2017) %>%
+  filter(scientificName == "Brachionus havanaensis") %>%
+  ggplot(aes(x = as.POSIXct(startDate),
+             y = elevation,
+             color = scientificName)) +
+    geom_point(alpha = 0.1) +
+    geom_smooth(method = "loess",
+                se = FALSE) +
+  ggtitle("Elevation of Brachionus havanaensis 2017")
+```
+
+![](Analysis_files/figure-markdown_github/geomplot-ele-havanaensis-1.png)
+
+This figure shows the varying elevation at the two sites that contain this collected species *Brachionus havanaensis*. These sites include Prairie Lake at Dakota Coteau Field (PRLA) and Prairie Pothole (PRPO). The time period the sample of zooplakton was collected at its elevation is shown above.
+
+*Statistic 2*
+
+``` r
+zoo_all %>%
+  #filter(scientificName %in% most_abundant_spp) %>%
+  filter(year(startDate) == 2017) %>%
+  filter(scientificName == "Brachionus havanaensis") %>%
+  lm(individualCount ~ elevation, data = .) %>%
+  summary()
+```
+
+    ## 
+    ## Call:
+    ## lm(formula = individualCount ~ elevation, data = .)
+    ## 
+    ## Residuals:
+    ##    Min     1Q Median     3Q    Max 
+    ## -93.91 -51.08 -29.16  17.96 392.92 
+    ## 
+    ## Coefficients:
+    ##              Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept) 1224.3268   224.6368   5.450 1.00e-07 ***
+    ## elevation     -2.0114     0.3911  -5.142 4.72e-07 ***
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 98.96 on 322 degrees of freedom
+    ## Multiple R-squared:  0.07589,    Adjusted R-squared:  0.07302 
+    ## F-statistic: 26.44 on 1 and 322 DF,  p-value: 4.719e-07
+
+This linear regression model shows that there is a correlation between individual count of the species *Brachionus havanaensis* and elevation. The P value was less than 0.05 (4.719e-07), so we reject the null hypothesis and conclude that there is a significant relationship between elevation and zooplakton abundance of *Brachionus havanaensis*. The R-squared value (0.07589) indicates that the regression line fits the data a little, but not much as a perfect fit would be considered (1).
+
+*Figure 7*
+
+``` r
+zoo_all %>%
+  filter(scientificName %in% most_abundant_spp) %>%
+  filter(year(startDate) == 2017) %>%
+  filter(scientificName == "Brachionus havanaensis") %>%
+  ggplot(aes(x = as.POSIXct(startDate),
+             y = zooMeanLength,
+             color = scientificName)) +
+    geom_point(alpha = 0.1) +
+    geom_smooth(method = "loess",
+                se = FALSE) +
+  ggtitle("Mean Length of Brachionus havanaensis 2017")
+```
+
+![](Analysis_files/figure-markdown_github/geomplot-mean-length-1.png)
+
+This figure shows the mean length of zooplakton collected in 2017 at the time (start date) they were collected. As you can see there is no difference in length of the zooplakton *Brachionus havanaensis* throughout the time it was collected.
 
 Discussion
 ==========
