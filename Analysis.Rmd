@@ -80,6 +80,8 @@ zoo_all <- zoo_data %>%
   left_join(zoo_tax, by = "siteID")
 ```
 
+*Figure 1*
+
 ```{r plot-usa-zoo-sites}
 usa_map <- map_data("usa")
 
@@ -105,11 +107,30 @@ ggplot() +
   ggtitle("Sites with Zooplankton Abundance")
 ```
 
+This figure shows the location of the seven sites being observed and their abundance of zooplakton captured at each site. The sites include, Toolik (Tool), Barco Lake (BARC), Suggs Lake (SUGG), Prairie Lake at Dakota Coteau Field (PRLA), Prairie Pothole (PRPO), Crampton Lake (CRAM), and Little Rock Lake (LIRO). Some sites are in the same area and the dot on the map represents more than one site. 
+
+*Figure 2*
+
 ```{r boxplot-abundance}
 boxplot(individualCount ~ siteID, data = zoo_all,
         main = "Abundance of Zooplankton at each Site",
         xlab = "Site ID", ylab = "Individual Count")
 ```
+
+This boxplot shows the individual count of zooplakton captured at each site. 
+
+*Figure 3*
+
+```{r species-seen-at-all-sites}
+zoo_all %>%
+  filter(year(startDate) == 2017) %>%
+ggplot(aes(x = scientificName,
+           y = siteID)) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle=90, hjust=1))
+```
+
+This figure shows the numerous of zooplackton species found at the seven lake sites.  
 
 ```{r filter-most-abundant}
 most_abundant_spp <- zoo_all %>%
@@ -119,6 +140,8 @@ most_abundant_spp <- zoo_all %>%
   head() %>%
   pull(scientificName)
 ```
+
+*Figure 4*
 
 ```{r most-abund-timepoint}
 zoo_all %>%
@@ -131,8 +154,12 @@ zoo_all %>%
     geom_smooth(method = "loess",
                 se = FALSE) +
   scale_y_log10() +
-  ggtitle("Individual Count of Species in the Year 2017") 
+  ggtitle("Individual Count of Most Abundant Species in the Year 2017") 
 ```
+
+This figure looks at individual count from 2017 of the most abundant species. These six species are types of zooplakton collected. It looks at when the sample was taken, and its abundance at that time.  
+
+*Figure 5*
 
 ```{r geomplot-havanaensis}
 zoo_all %>%
@@ -149,6 +176,10 @@ zoo_all %>%
   ggtitle("Individual Count of Brachionus havanaensis 2017")
 ```
 
+This figure is a close up of one of the most abundant species *Brachionus havanaensis*. It shows the fluctuation of the amount of zooplakton caught and the time in which month it was collected. This also shows that this species is only seen between early May and late September. 
+
+*Statistic 1*
+
 ```{r statistic-date}
 zoo_all %>%
   #filter(scientificName %in% most_abundant_spp) %>%
@@ -157,6 +188,10 @@ zoo_all %>%
   lm(individualCount ~ as.POSIXct(startDate), data = .) %>%
   summary()
 ```
+
+This linear regression model shows that there is not a correlation between individual count of *Brachionus havanaensis* and the start date the sample was collected. The P value was greater than 0.05 (0.7565), so we accept the null hypothesis and conclude that this is not a significant relationship between zooplakton abundance and the time the sample was collected. The R-squared value (0.000299) indicates that the regression line does not fit the data. 
+
+*Figure 6*
 
 ```{r geomplot-ele-havanaensis}
 zoo_all %>%
@@ -172,6 +207,10 @@ zoo_all %>%
   ggtitle("Elevation of Brachionus havanaensis 2017")
 ```
 
+This figure shows the varying elevation at the two sites that contain this collected species *Brachionus havanaensis*. These sites include Prairie Lake at Dakota Coteau Field (PRLA) and Prairie Pothole (PRPO). The time period the sample of zooplakton was collected at its elevation is shown above.
+
+*Statistic 2*
+
 ```{r statistic-elevation}
 zoo_all %>%
   #filter(scientificName %in% most_abundant_spp) %>%
@@ -180,6 +219,10 @@ zoo_all %>%
   lm(individualCount ~ elevation, data = .) %>%
   summary()
 ```
+
+This linear regression model shows that there is a correlation between individual count of the species *Brachionus havanaensis* and elevation. The P value was less than 0.05 (4.719e-07), so we reject the null hypothesis and conclude that there is a significant relationship between elevation and zooplakton abundance of *Brachionus havanaensis*. The R-squared value (0.07589) indicates that the regression line fits the data a little, but not much as a perfect fit would be considered (1). 
+
+*Figure 7*
 
 ```{r geomplot-mean-length}
 zoo_all %>%
@@ -195,20 +238,7 @@ zoo_all %>%
   ggtitle("Mean Length of Brachionus havanaensis 2017")
 ```
 
-```{r for-reference}
-zoo_all %>%
-  filter(year(startDate) == 2017) %>%
-ggplot(aes(x = scientificName,
-           y = siteID)) +
-  geom_boxplot() +
-  theme(axis.text.x = element_text(angle=90, hjust=1))
-```
-
-
-
-
-
-In addition to a minimum of 5-10 figures/tables (and associated captions), you should include sufficient text in this section to describe what your findings were. Remember that in the Results section you just describe what you found, but you don't interpret it - that happens in the Discussion. 2-3 pages.
+This figure shows the mean length of zooplakton collected in 2017 at the time (start date) they were collected. As you can see there is no difference in length of the zooplakton *Brachionus havanaensis* throughout the time it was collected.
 
 # Discussion
 
