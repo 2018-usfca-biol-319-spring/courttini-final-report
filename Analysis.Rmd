@@ -19,11 +19,17 @@ The different types of field sites include core terrestrial sites, core aquatic 
 
 ![](data/2017_NEONDomainOverview.jpg)
 
+At the varying sites multiple different functional groups of dry mass are recorded depending the location of the site. This includes dry mass of flowers, leaves, mixed, needles, other, seeds, twigs/branches, and woody material. NEON also chose to observe small mammals as they are common to almost every place and they are receptive to changes in the environment. These small mammals are based on a couple different characteristics including taxonomic, behavior, dietary, and size. This data is important for in the use of public health issues like disease prevalence, accounting for the amount of species that are in certain environments, and specifically for climate changes and land use. Specifically, this project looks at a data set on captured zooplakton in lakes at various sites.
 
+Zooplankton are important to study as they inhabit all layers of a body of water and contain a major link between primary production and higher trophic levels in aquatic ecosystems. Unlike other aquatic species, zooplankton are microscopic animals that do not produce their own food. Zooplankton float freely in the water column of lakes and oceans. They not only prey, but they are also consumers in the aquatic food web. Also, they are often filter feeders that feed primarily on algae while being the main food source for fish. An interesting finding is that zooplankton respond to environmental stressors such as nutrientsm ans such effects can be detected through changes in species composition, abundance, and body size distribution. All of this information came from the AOS Protocol and Procedure: Zooplankton Sampling in Lakes. 
 
+Many zooplankton are capable of strong swimming movements and may migrate vertically from tens to hundreds of meters. However, others have limited mobility and depend more on water turbulence to stay afloat. Zooplankton can be classified to developmental stages: meroplankton and holoplankton; and to size [@sabates1989relationship]. The meroplankton spend part of their life as plankton, while holoplankton spend essentially their whole existence in the water column. Freshwater zooplankton are also dominated by six major groups. These include protozoa, rotifers, two subclasses of the Crustacea, the cladocerans and copepods, and *Mysis* and *Chaoborus*.
 
+Seasonality plays an important role in zooplankton species presence and abundance, with cyclopoid and calanoid copepods dominating the community in the winter months, with large cladocera peaking in mid-summer and small cladocera in later summer early autumn [@gerten2002species]. A change in lake trophic conditions from oligotrophic to eutrophic has been shown to result in size-selective predation that potentially contributes to the decline of larger zooplankton, with ciliated protozoans and rotifers becoming more important [@wetzel2001limnology]. 
 
-Delete this placeholder text, and replace it with your introduction text. You should include background on the NEON project including proper citations (e.g. [@thorpe2016introduction]) and other relevent background information related to your specific hypotheses. Add about 2-3 pages here. Across the whole manuscript, you should cite at least 20 peer reviewed articles.
+The Zooplankton sampling is used to quantify biodiversity, number of species present, and biomass (or biovolume) at each lake site. These variables are then used to build a database over time, in order to track changes in zooplankton community structure and function, and introduction of invasive species.
+
+hypothesis: 
 
 # Methods
 
