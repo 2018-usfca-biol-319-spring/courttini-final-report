@@ -13,6 +13,16 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introduction
 
+The National Ecological Observatory Network (NEON) is an ecological observation facility that collects data on rapidly changing ecological processes in the United States. NEON has standardized data from 81 field sites that span across the United States within 20 Eco-climatic domains that represent regions of distinct land forms, vegetation, climate, and ecosystem dynamics. NEON measures the causes and effects of environmental change in different types of environments and data sets. 
+
+The different types of field sites include core terrestrial sites, core aquatic sites, relocatable terrestrial sites, and relocatable aquatic sites. The different sites ensure that the data will statistically represent ecological, physical, and biological differences spanning the continent. As seen from the image below, the field sites are also in Alaska, Hawaii, and Puerto Rico. This image shows where the NEON sites are located including where the four different types of sites are located [@thorpe2016introduction].
+
+![](data/2017_NEONDomainOverview.jpg)
+
+
+
+
+
 Delete this placeholder text, and replace it with your introduction text. You should include background on the NEON project including proper citations (e.g. [@thorpe2016introduction]) and other relevent background information related to your specific hypotheses. Add about 2-3 pages here. Across the whole manuscript, you should cite at least 20 peer reviewed articles.
 
 # Methods
