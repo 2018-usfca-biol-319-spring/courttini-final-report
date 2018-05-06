@@ -131,7 +131,7 @@ boxplot(individualCount ~ siteID, data = zoo_all,
         xlab = "Site ID", ylab = "Individual Count")
 ```
 
-This boxplot shows the individual count of zooplakton captured at each site. 
+This boxplot shows the individual count of zooplankton captured at each site. BARC, CRAM, and SUGG seem to have the most abundance of zooplankton.
 
 *Figure 3*
 
@@ -190,7 +190,7 @@ zoo_all %>%
   ggtitle("Individual Count of Brachionus havanaensis 2017")
 ```
 
-This figure is a close up of one of the most abundant species *Brachionus havanaensis*. It shows the fluctuation of the amount of zooplakton caught and the time in which month it was collected. This also shows that this species is only seen between early May and late September. 
+This figure is a close up of one of the most abundant species *Brachionus havanaensis*. It shows the fluctuation of the amount of zooplankton caught and the time in which month it was collected. This also shows that this species is only seen between early May and late September. 
 
 *Statistic 1*
 
@@ -252,9 +252,13 @@ zoo_all %>%
   ggtitle("Mean Length of Brachionus havanaensis 2017")
 ```
 
-This figure shows the mean length of zooplakton collected in 2017 at the time (start date) they were collected. As you can see there is no difference in length of the zooplakton *Brachionus havanaensis* throughout the time it was collected.
+This figure shows the mean length of zooplakton collected in 2017 at the time (start date) they were collected. As you can see there is no difference in length of the zooplankton *Brachionus havanaensis* throughout the time it was collected.
 
 # Discussion
+
+Zooplankton are found in lakes and oceans all over the world. The seven NEON sites, Toolik (Tool), Barco Lake (BARC), Suggs Lake (SUGG), Prairie Lake at Dakota Coteau Field (PRLA), Prairie Pothole (PRPO), Crampton Lake (CRAM), and Little Rock Lake (LIRO). The most abundant species of zooplankton 
+
+
 
 Discuss the results you found in the context of what you know about the site/sites and the predominant types of ecosystems in those locations. Think also about the community dynamics, different types of species interactions, food webs, trophic transfer, energy flow, etc. Should be around 3-4 pages interpreting your results and considering future directions you could take in analyzing these data.
 
