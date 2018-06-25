@@ -1,7 +1,7 @@
 ---
-title: "Analysis Report 2: NEON Mosquito Trap Data"
-author: "Don Francisco"
-date: "4/3/2018"
+title: "Final Report: Zooplakton Abundance 2017"
+author: "Courtney Lopez"
+date: "4/7/2018"
 bibliography: references.bib
 csl: ecology.csl
 output: github_document
@@ -13,29 +13,62 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introduction
 
-Delete this placeholder text, and replace it with your introduction text. You should include background on the NEON project including proper citations (e.g. [@thorpe2016introduction]) and other relevent background information related to your specific hypotheses. Add about 2-3 pages here. Across the whole manuscript, you should cite at least 20 peer reviewed articles.
+The National Ecological Observatory Network (NEON) is an ecological observation facility that collects data on rapidly changing ecological processes in the United States. NEON has standardized data from 81 field sites that span across the United States within 20 Eco-climatic domains that represent regions of distinct land forms, vegetation, climate, and ecosystem dynamics. NEON measures the causes and effects of environmental change in different types of environments and data sets. 
+
+The different types of field sites include core terrestrial sites, core aquatic sites, relocatable terrestrial sites, and relocatable aquatic sites. The different sites ensure that the data will statistically represent ecological, physical, and biological differences spanning the continent. As seen from the image below, the field sites are also in Alaska, Hawaii, and Puerto Rico. This image shows where the NEON sites are located including where the four different types of sites are located [@thorpe2016introduction].
+
+![](data/2017_NEONDomainOverview.jpg)
+
+At the varying sites multiple different functional groups of dry mass are recorded depending the location of the site. This includes dry mass of flowers, leaves, mixed, needles, other, seeds, twigs/branches, and woody material. NEON also chose to observe small mammals as they are common to almost every place and they are receptive to changes in the environment. These small mammals are based on a couple different characteristics including taxonomic, behavior, dietary, and size. This data is important for in the use of public health issues like disease prevalence, accounting for the amount of species that are in certain environments, and specifically for climate changes and land use. Specifically, this project looks at a data set on captured zooplankton in lakes at various sites.
+
+Zooplankton are important to study as they inhabit all layers of a body of water and contain a major link between primary production and higher trophic levels in aquatic ecosystems. Ingestion of heterotrophic and mixotrophic flagellates by most zooplankton, serve as a relatively efficient shunt of microbial carbon and energy to higher trophic levels [@sanders1990bacterivorous]. Unlike other aquatic species, zooplankton are microscopic animals that do not produce their own food. Zooplankton float freely in the water column of lakes and oceans. They not only prey, but they are also consumers in the aquatic food web. Also, they are often filter feeders that feed primarily on algae while being the main food source for fish. An interesting finding is that zooplankton respond to environmental stressors such as obtaining nutrients  and such effects can be detected through changes in species composition, abundance, and body size distribution. All of this information came from the AOS Protocol and Procedure: zooplankton Sampling in Lakes. 
+
+Many zooplankton are capable of strong swimming movements and may migrate vertically from tens to hundreds of meters. However, others have limited mobility and depend more on water turbulence to stay afloat. Zooplankton can be classified to developmental stages: meroplankton and holoplankton; and to size. Also these zooplankton distribute as a result of high degree of environmental fluctuation close to the coast [@sabates1989relationship]. The meroplankton spend part of their life as plankton, while holoplankton spend essentially their whole existence in the water column. Freshwater zooplankton are also dominated by six major groups. These include protozoa, rotifers, two sub classes of the Crustacea, the cladocerans and copepods, and *Mysis* and *Chaoborus*. One study looked at how different water masses affect the distribution, abundance, and biomass of zooplankton in the Aleutian Island passes. A conductivity-temperature-depth (CTD) device was used, for the collection of samples of zooplankton. The results of the analysis study indicated about 45-50% of the observed variance in zooplankton abundance could be explained by physical variables. These things include temperature-salinity characteristics of specific water masses. Plus, items like eddies and fronts that form due to circulation in the water can result in dense zooplankton aggregations, and this in turn is a favorable foraging habitats for fish [@coyle2005zooplankton]. 
+
+Zooplankton abundance in the River Danube, Austria is another study that specifically focused on the significance of inshore retention. A compelling finding that resulted from their study was zooplankton abundance differed greatly between sampling sites and the differences were the result of variations in water residence time within the habitats. Inshore habitats with low flushing rates act as storage zones for zooplankton [@reckendorfer1999zooplankton]. This concludes that in total zooplankton numbers were positively related to the availability of adjacent storage zones. This is important for the analysis being conducted here as many factors may contribute as to why there are more zooplankton in one area than in the other. On another note, zooplankton are important as they are primary consumers and eat bacteria, detritus, other rotifers, algae, and protozoa. However, over the years all zooplankton groups showed a long-term abundance decline from 1972 to now in the Sacramento-San Joaquin delta due to a decline in chlorophyll a [@orsi1986zooplankton]. 
+
+Seasonality plays an important role in zooplankton species presence and abundance, with cyclopoid and calanoid copepods dominating the community in the winter months, with large cladocera peaking in mid-summer and small cladocera in later summer early autumn [@gerten2002species]. A change in lake trophic conditions from oligotrophic to eutrophic has been shown to result in size-selective predation that potentially contributes to the decline of larger zooplankton, with ciliated protozoans and rotifers becoming more important [@wetzel2001limnology]. Another study, looked at zooplankton through a seventy year observations and evaluated their changes in abundance and distribution. This study found that there are extensive changes in marine communities and that over the 70 year period there was a climatic warming from the early 1920s, then a cooling to the 1980s. Most the the changes in zooplankton occurred in their community structure and there was a distribution shift of about 120 miles. Within this there were increases and decreases of 2-3 orders of magnitude in abundance depending on the area. Therefore, warm water species increased in abundance and extended their range during periods of warming, while cold water species declined [@southward1995seventy]. 
+
+Going off of climate, and how it affects the abundance of zooplankton, one study looked at the warming of the California current. Macrozooplankton off the California coast has decreased by 80 percent, while the surface of water has increased more than 1.5 degrees Celsius [@roemmich1995climatic]. This then results with shallower water and provides less inorganic nutrients for new biological production, so ultimately a lesser zooplankton abundance. 
+
+This zooplankton data is important as large spatiotemporal-scale fisheries research amid pervasive environmental changes and this requires scientific resources beyond the capabilities of individual laboratories [@utz2013national]. The zooplankton sampling is used to quantify biodiversity, number of species present, and biomass (or bio volume) at each lake site. These variables are then used to build a database over time, in order to track changes in zooplankton community structure and function, and introduction of invasive species. Thus, NEON represents an unprecedented and dynamic resource for not only fisheries, but also data for scientists in the coming decades. With this information, I propose that zooplankton at lower elevations will have a higher abundance (individual count) since they will stay at the top of the water in warmer temperatures, than those at higher elevations. I am also curious as to which species of zooplankton are most abundant through out the sites. 
 
 # Methods
 
-Describe where the data came from, including the sets of sites you are comparing, how the data you are using were collected in the field, some information about those sites and why you chose them, and how you are analyzing them (e.g. using R to visualize the results and the statistical tests you will use).
+The zooplankton collection data came from the NEON website data portal. This data product contains the quality-controlled, native sampling resolution data and metadata from NEON's aquatic zooplankton collection protocol, as well as associated taxonomic, morphometric, and count analyses data provided by a contracted lab.  This data product shows the collection of zooplankton from water column samples in lakes. The collection system used was the Aquatic Observation System (AOS).
 
 ## Site Locations and Descriptions
 
-Add text here. In this section instead of first person (I/we), use 'NEON', or 'NEON scientists', since you'll just be describing what they did.
+The seven NEON aquatic lake sites where zooplankton collection occurred are Toolik (Tool), Barco Lake (BARC), Suggs Lake (SUGG), Prairie Lake at Dakota Coteau Field (PRLA), Prairie Pothole (PRPO), Crampton Lake (CRAM), and Little Rock Lake (LIRO).
+
+The first site TOOL is a core terrestrial site located in Alaska. The site host was the Bureau of Land Management. The data status for this site is only partially available, so not much is known from this site. However, a biochemistry study of Toolik Lake, Alaska found that this lake is characterized by extreme low rates of organic matter sedimentation and unusually high concentrations of iron and manganese [@cornwell1992biogeochemistry]. This means that this sediment is very similar to those in oligotrophic oceanic environments.
+
+The second site BARC is a core terrestrial site as well. This site is located in Southeast Florida and the site host is the University of Florida Foundation. Barco Lake is an oligotrophic acidic (pH 4.5) seepage lake, which means it has low nutrient levels and the landscape is formed of soluble rocks. This site is estimated to be at least 1000 years old. The primary vegetation at this site is forest spaced with pine trees and deciduous oaks. Fire is a dominant factor of the ecology at this site. This site is important breeding areas for terrestrial amphibians including the gopher frog. The lake is a typical lentic water body without a lot of water coming in or out. Water may be largely obtained from groundwater seepage about 8 inches per year. The lake is clear with dissolved organic carbon and a chemistry fluctuation that is highly influenced by rainwater and groundwater interactions. 
+
+The third site SUGG is a core terrestrial site located in Southeast Florida as well. It also has the site host being University of Florida Foundation. The lake is classified as a Marsh lake with major plant communities that surround it. This late is also a seepage lake like the BARC site, in which the lakes are underlain by the Floridan Aquifer dominated by a limestone and dolomite geology. The primary vegetation that surrounds this lake includes cypress swamps and old pastures. There is an adjacent hardwood forest as well with species that include of the Water Oak, Bald Cypress and Sweet gum. The site contains a dense population of amphibians like the salamanders. The water flow from this lake is primarily surface water dominated. This lake is classified with water that comes from groundwater, local aquifer, and local surface and subsurface flow through the wetland complex. Similar to the BARC site there is a strong link between the lake and the groundwater. 
+
+The fourth site PRLA is a relocatable aquatic site in the Northern Plains of North Dakota. The site host is the State of North Dakota Land Trust. Just like the first site, the data status for this site is only partially available, so not much is known from this site. 
+
+The fifth site PRPO is a core aquatic site also in the Northern Plains of North Dakota. The site host is the U.S. Geological Survey and U.S. Fish and Wildlife Service. This site also has a data status that is only partially available, so not much is known from this site. Both the PRLA site and this site have a similar vegetation of wetlands in the North Dakota area. Potholes have standing water and the deepest part is usually in the center basin and this determines how many zones of species are present. When flooded for a brief time in the spring, the primary species that reside there are grasses, sedges, and forbs. Mostly grazing, mowing, and burning have altered the composition of pothole vegetation and this ultimately leads to the varying elevations that they contain [@kantrud1989vegetation].
+
+The sixth site CRAM is a core aquatic site located at the Great Lakes in Wisconsin. The site host is the University of Notre Dame Environmental Research Center. The overall vegetation of this site is hardwood forests as well as open water areas and wetlands. The lake at this site is also a seepage lake, and is primarily rain, and groundwater fed. This site however has a slowly flowing inlet from a bog on the northeast edge. The lake is mostly completely covered with ice from November to March. The composition of the lake includes organic muck, silt, and sand. The lake has clear water, and is oligotophic like the BARC site. The pH of the water is neutral (6.5) and is very sensitive to to slight changes of acidity. 
+
+The last site where zooplankton was collected is LIRO. This site is a relocatable aquatic site at the Great Lakes in Wisconsin. The site host is the Wisconsin Department of Natural Resources. Just like three other sites, this site also has a data status that is only partially available, so not much is known from this site. However, a study does conclude that Little Rock Lake is recovering from environmental stressors, like acidification, that has reduced zooplankton abundance and they have a 40% recovery lag time [@frost2006trajectories]. 
+
 
 ## Field Sampling Design
 
-Add text here. Add text here. In this section instead of first person (I/we), use 'NEON', or 'NEON scientists', since you'll just be describing what they did.
+Neon scientists' collected zooplankton samples three times per year at the seven lake sites during biology bount windows, during the seasons of spring, summer, and fall. The three different times periods are significant for various reasons. Sample bout 1 is usually right after the winter season when there is a period of rapid biomass accumulation. Sample bout 2 is during the middle of summer and sample bout 3 happens in the late growing season during leaf-fall. Sampling at each site is completed within a single day for each bout. Zooplankton at NEON sites were sampled from the water column near the NEON sensor sets in lakes. Samples were collected near the inlet, outlet, and deepest sampling locations. This can be seen with the picture below from the NEON user Guide to Aquatic Zooplankton Collection.
+
+![](data/Screen Shot 2018-05-02 at 10.57.37 PM.png)
+
+The type of sampler used to collect zooplankton was determined by water depth at the location of the site. NEON scientists at locations deeper than 4 m are were sampled using a vertical tow net, while locations shallower than 4 m were sampled using a Schindler-Patalas sampler. Up to three traps or samplers were used for the collection. The samplers used for zooplankton collection were designed by the NEON scientists to work by collecting a small amount of the water column at the site. The volume that was collected with a vertical tow net was the area of the tow net opening multiplied by the depth of the tow, multiplied by the number of tows composited in one sample. With the Schindler-Patalas trap there is a clear Lexan box that contains 12 L of water so the volume is 12 L times the number of traps that are in one sample. Once the samples were collected they were preserved in ETOH and sent to a laboratory for taxonomic identification. Another way zooplankton abundance could have been recorded is by using an acoustic Doppler current profiler [@flagg1989use]. The results of this study saw that there was a correlation between back scatter signal intensity and total zooplankton volume, cross-sectional area, and dry weight. This could improve this study by providing an more total count of the amount of zooplankton in the lakes at the sites being studied.
 
 ## Data Analysis and Statistics
 
-Add text here. Here this is all your work, so 'I/we' is fine.
+I will be using R studio to conduct statistics on the zooplankton data. A linear regression will be used to determine if there is a correlation between elevation and individual count of the species *Brachionus havanaensis*. As well as if there is a correlation between the season/date the sample was collected and the abundance. 
 
 # Results
-
-## Subsections are ok in the results section too
-
-Add a number of code chunks in the Results section. These should read in, subset and plot the data as needed (no need to save any figures to pdf, since they will be put into the rendered document when you click 'knit'), and, for any hypotheses that you want to test, an appropriate statistical test. You should have at least 5-10 figures and/or tables in this section, which you use to test your hypotheses against the dataset. 
 
 ```{r load-packages}
 # If you add any additional packages here, make sure they are
@@ -44,13 +77,197 @@ library("dplyr")
 library("tidyr")
 library("ggplot2")
 library("readr")
+library("lubridate")
 ```
 
-In addition to a minimum of 5-10 figures/tables (and associated captions), you should include sufficient text in this section to describe what your findings were. Remember that in the Results section you just describe what you found, but you don't interpret it - that happens in the Discussion. 2-3 pages.
+```{r read-in-dataset}
+# this is the information on location of zooplankton caught
+zoo_data <- read_csv("filesToStack20219/stackedFiles/zoo_fieldData.csv")
+
+# this is the info about the taxonomic identity of zooplankton found
+zoo_tax <- read_csv("filesToStack20219/stackedFiles/zoo_taxonomyProcessed.csv")
+```
+
+```{r combine-datasets}
+# this is the combined data from two sets
+zoo_all <- zoo_data %>%
+  left_join(zoo_tax, by = "siteID")
+```
+
+*Figure 1*
+
+```{r plot-usa-zoo-sites}
+usa_map <- map_data("usa")
+
+points_with_lat_long <- zoo_all %>%
+  filter(!is.na(decimalLatitude)) %>%
+  filter(individualCount > 0) %>%
+  group_by(siteID) %>%
+  summarize(total_count = sum(individualCount),
+            mean_lat = mean(decimalLatitude),
+            mean_long = mean(decimalLongitude))
+
+ggplot() +
+  geom_polygon(data = usa_map,
+               aes(x = long,
+                   y = lat,
+                   group = group),
+               fill = "dark blue") +
+  coord_fixed(1.3) +
+  geom_point(data = points_with_lat_long,
+           aes(x = mean_long,
+               y = mean_lat,
+               size = total_count)) +
+  ggtitle("Sites with Zooplankton Abundance")
+```
+
+This figure shows the location of the seven sites being observed and their abundance of zooplankton captured at each site. The sites include, Toolik (Tool), Barco Lake (BARC), Suggs Lake (SUGG), Prairie Lake at Dakota Coteau Field (PRLA), Prairie Pothole (PRPO), Crampton Lake (CRAM), and Little Rock Lake (LIRO). Some sites are in the same area and the dot on the map represents more than one site. 
+
+*Figure 2*
+
+```{r boxplot-abundance}
+boxplot(individualCount ~ siteID, data = zoo_all,
+        main = "Abundance of Zooplankton at each Site",
+        xlab = "Site ID", ylab = "Individual Count")
+```
+
+This boxplot shows the individual count of zooplankton captured at each site. BARC, CRAM, and SUGG seem to have the most abundance of zooplankton.
+
+*Figure 3*
+
+```{r species-seen-at-all-sites}
+zoo_all %>%
+  filter(year(startDate) == 2017) %>%
+ggplot(aes(x = scientificName,
+           y = siteID)) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+This figure shows the numerous of zooplankton species found at the seven lake sites.  
+
+```{r filter-most-abundant}
+most_abundant_spp <- zoo_all %>%
+  group_by(scientificName) %>%
+  summarize(sum_indiv = sum(individualCount, na.rm = TRUE)) %>%
+  arrange(desc(sum_indiv)) %>%
+  head() %>%
+  pull(scientificName)
+```
+
+*Figure 4*
+
+```{r most-abund-timepoint}
+zoo_all %>%
+  filter(scientificName %in% most_abundant_spp) %>%
+  filter(year(startDate) == 2017) %>%
+  ggplot(aes(x = as.POSIXct(startDate),
+             y = individualCount,
+             color = scientificName)) +
+    geom_point(alpha = 0.1) +
+    geom_smooth(method = "loess",
+                se = FALSE) +
+  scale_y_log10() +
+  ggtitle("Individual Count of Most Abundant Species in the Year 2017")
+```
+
+This figure looks at individual count from 2017 of the most abundant species. These six species are types of zooplankton collected throughout the seven sites. It looks at when the sample was taken at what month during the 2017 year, and its abundance at that time. The species of *Copepoda sp*, *Calanoida sp*, *Keratella taurocephala* seem to have a very consistent pattern of individual zooplankton present and when the sample was taken. The species of *Brachionus havanaensis*, *Bosmina longirostris*, and *Keratella quadrata* seem to fluctuate a lot throughout the 2017 year. 
+
+*Figure 5*
+
+```{r geomplot-havanaensis}
+zoo_all %>%
+  filter(scientificName %in% most_abundant_spp) %>%
+  filter(year(startDate) == 2017) %>%
+  filter(scientificName == "Brachionus havanaensis") %>%
+  ggplot(aes(x = as.POSIXct(startDate),
+             y = individualCount,
+             color = scientificName)) +
+    geom_point(alpha = 0.1) +
+    geom_smooth(method = "loess",
+                se = FALSE) +
+  scale_y_log10() +
+  ggtitle("Individual Count of Brachionus havanaensis 2017")
+```
+
+This figure is a close up of one of the most abundant species *Brachionus havanaensis*. It shows the fluctuation of the amount of zooplankton caught and the time in which month it was collected. This also shows that this species is only seen between early May and late September. 
+
+*Statistic 1*
+
+```{r statistic-date}
+zoo_all %>%
+  #filter(scientificName %in% most_abundant_spp) %>%
+  filter(year(startDate) == 2017) %>%
+  filter(scientificName == "Brachionus havanaensis") %>%
+  lm(individualCount ~ as.POSIXct(startDate), data = .) %>%
+  summary()
+```
+
+This linear regression model shows that there is not a correlation between individual count of *Brachionus havanaensis* and the start date the sample was collected. The P value was greater than 0.05 (0.7565), so we accept the null hypothesis and conclude that this is not a significant relationship between zooplankton abundance and the time the sample was collected. The R-squared value (0.000299) indicates that the regression line does not fit the data. 
+
+*Figure 6*
+
+```{r geomplot-ele-havanaensis}
+zoo_all %>%
+  filter(scientificName %in% most_abundant_spp) %>%
+  filter(year(startDate) == 2017) %>%
+  filter(scientificName == "Brachionus havanaensis") %>%
+  ggplot(aes(x = as.POSIXct(startDate),
+             y = elevation,
+             color = scientificName)) +
+    geom_point(alpha = 0.1) +
+    geom_smooth(method = "loess",
+                se = FALSE) +
+  ggtitle("Elevation of Brachionus havanaensis 2017")
+```
+
+This figure shows the varying elevation at the two sites that contain this collected species *Brachionus havanaensis*. These sites include Prairie Lake at Dakota Coteau Field (PRLA) and Prairie Pothole (PRPO). The time period the sample of zooplankton was collected at its elevation is shown above.
+
+*Statistic 2*
+
+```{r statistic-elevation}
+zoo_all %>%
+  #filter(scientificName %in% most_abundant_spp) %>%
+  filter(year(startDate) == 2017) %>%
+  filter(scientificName == "Brachionus havanaensis") %>%
+  lm(individualCount ~ elevation, data = .) %>%
+  summary()
+```
+
+This linear regression model shows that there is a correlation between individual count of the species *Brachionus havanaensis* and elevation. The P value was less than 0.05 (4.719e-07), so we reject the null hypothesis and conclude that there is a significant relationship between elevation and zooplankton abundance of *Brachionus havanaensis*. The R-squared value (0.07589) indicates that the regression line fits the data a little, but not much as a perfect fit would be considered (1). 
+
+*Figure 7*
+
+```{r geomplot-mean-length}
+zoo_all %>%
+  filter(scientificName %in% most_abundant_spp) %>%
+  filter(year(startDate) == 2017) %>%
+  filter(scientificName == "Brachionus havanaensis") %>%
+  ggplot(aes(x = as.POSIXct(startDate),
+             y = zooMeanLength,
+             color = scientificName)) +
+    geom_point(alpha = 0.1) +
+    geom_smooth(method = "loess",
+                se = FALSE) +
+  ggtitle("Mean Length of Brachionus havanaensis 2017")
+```
+
+This figure shows the mean length of zooplankton collected (in millimeters)  2017 at the time (start date) they were collected. As you can see there is no difference in length of the zooplankton *Brachionus havanaensis* throughout the time it was collected. 
 
 # Discussion
 
-Discuss the results you found in the context of what you know about the site/sites and the predominant types of ecosystems in those locations. Think also about the community dynamics, different types of species interactions, food webs, trophic transfer, energy flow, etc. Should be around 3-4 pages interpreting your results and considering future directions you could take in analyzing these data.
+My hypothesis was, zooplankton at lower elevations will have a higher abundance (individual count) than those at higher elevations.
+Zooplankton are found in lakes and oceans all over the world. The seven NEON sites, Toolik (Tool), Barco Lake (BARC), Suggs Lake (SUGG), Prairie Lake at Dakota Coteau Field (PRLA), Prairie Pothole (PRPO), Crampton Lake (CRAM), and Little Rock Lake (LIRO) are lakes localized in four main locations as can be seen in Figure one. The most abundant species of zooplankton seem to come from the three sites of BARC, CRAM, and SUGG for the overall NEON data set (Figure 2). This is due to the fact that both the BARC and SUGG site are located in Florida, while the CRAM site is located in Wisconsin. The chemical composition and site location is a main component of the abundance of zooplankton. A study that looks at the relationships between zooplankton abundance and chlorophyll a concentrations in Florida lakes saw that this was a relationship. Abundances of the different groupings of zooplankton were positively correlated with chlorophyll a concentrations, with the most being in the summer [@canfield1984relationships]. Also both of these Florida sites are highly influenced by rainwater and ground water interactions, which contributes to this zooplankton abundance. Zooplankton-trophic state relationships are also a significant factor. In a survey of eight lake systems located in north-central Florida, total zooplankton abundance showed a strong positive correlation (r2 = 0.87, p = 0.01) with trophic state [@blancher1984zooplankton]. Zooplankton abundance averaged about 1.0 x 10^5 m-2 in oligotrophic systems, which is what these two lakes are as mentioned above in the site descriptions. Also, the study mentioned that in these oligotrophic systems that abundance was relatively stable and this can be seen in Figure 2. The CRAM site is also categorized as a seepage lake characterized by groundwater and rainwater. From this data and figure we can explain that zooplankton abundance is due to the type of lake it habitats and the chemical composition of the lake. 
+
+I first wanted to look at the species seen throughout the 2017 year and analyze their abundance, but noticed this was still too much data to look at (Figure 3). Instead, I decided to look at the most abundant species in the year of 2017 and analyze the difference in one of the species' abundance in the 2017 seasons. The most abundant species in the year of 2017 across the sites are *Bosmina longirostris*, *Brachionus havanaensis*, *Calanoida sp.*, *Copepoda sp*, *Keratekka quadrata*, and *Keratella taurocephala* (Figure 4). The species of *Copepoda sp*, *Calanoida sp*, *Keratella taurocephala* seem to have a very consistent pattern of individual zooplankton present and when the sample was taken. The species of *Brachionus havanaensis*, *Bosmina longirostris*, and *Keratella quadrata* seem to fluctuate a lot throughout the 2017 year. 
+
+The species I decided to focus on is *Brachionus havanaensis*. I wanted to look at this species to possibly find out what could be causing the fluctuation of the abundance of this species (Figure 5). The figure shows that the species is only seen between early May and late September. Also, that the highest individual count of *B. havanaensis* in 2017 is in between June and July, and drops at the end of May and in August. One thing that can explain the decrease in abundance at certain times of the year is the effect of cadmium and zinc on lakes. The effect of different concentrations of Cd or Zn on the population growth of *B. havanaensis* showed decreased population abundance with increasing levels of the metal concentration in the medium. However, for Cd even at the highest tested concentration, there was some increase in the abundance of B. havanaensis. On the other hand, for Zn at highest tested concentration the population of *B. havanaensis* showed little growth and remained close to the initial density. Under the conditions of mixed metal exposure, *B. havanaensis* did not grow at the highest tested concentrations of Cd+Zn combination [@juarez2007effect]. This study shows how much variation in abundance could be caused by the slightest difference in chemical composition, which can also be different for all the rest of the zooplankton species the NEON sites collected. This species is located at the sites Prairie Lake at Dakota Coteau Field (PRLA) and Prairie Pothole (PRPO) in the Northern Plains of North Dakota. This species is only found at these sites primarily because the area is dominated by freshwater marshes. The potholes of these marshes fill with snow melt and rain, that contain rich soils. Then, the prairie potholes absorb the rain, snow, and floodwater. This area is important to the species of *B havanaensis* because it is a neutral water environment in which the species will not be affected by chemical components.
+
+The first statistic conducted was to see if individual count was correlated and significant to the time the sample was collected, specifically the start date (Figure 5). The linear regression model showed in statistic 1 that there is not a correlation between individual count of *Brachionus havanaensis* and the start date the sample was collected. The P value was greater than 0.05 (0.7565), so we accept the null hypothesis and conclude that this is not a significant relationship between zooplankton abundance and the time the sample was collected. The R-squared value (0.000299) indicates as well that the regression line does not fit the data. This shows that no matter what month or time of the season the sample of zooplankton was collected, the individual count was about the same.
+
+Since there was no relationship I decided to look if individual count of zooplankton was related to the elevation of water at the sites during the about six month period. The plot of Figure 6, shows how much elevation changes when the samples are being collected throughout the 2017 year from late April to early October. Statistic two concluded that the linear regression model shows a correlation between individual count of the species *Brachionus havanaensis* and elevation. The P value was less than 0.05 (4.719e-07), so we reject the null hypothesis and conclude that there is a significant relationship between elevation and zooplankton  abundance of *Brachionus havanaensis*. The R-squared value (0.07589) indicates that the regression line fits the data a little, but not much as a perfect fit would be considered (1). Figure 5 with figure 6 seems to prove that at lower elevations, there are more zooplankton caught, than in higher elevations. This exact conclusion is seen in a study that looks at zooplankton richness in subarctic ponds. In that study, there was both a marked decline in the species number and a change in the composition of pond communities with increasing altitude and decreasing temperature as well as decreasing pH [@rautio1998community]. While, a another study saw that the number of zooplankton species in a lake is 75% correlated with lake size, average rate of photosynthesis, and the number of lakes around the area [@dodson1992predicting]. This data supports my hypothesis that zooplankton at lower elevations will have a higher abundance (individual count) than those at higher elevations. 
+
+Going further with the zooplankton data I also wanted to see if the zooplankton mean length of *B. havanaensis* differed throughout the year when samples were taken. However, Figure 7 shows that the mean length of *B havanaensis* in millimeters is constant throughout the entire year when the samples were being collected. I propose future studies to determine if elevation and location of the lake where zooplankton are found affect abundance. Also, I would like to look at a couple zooplankton species that are present at all NEON sites to see if their abundance varies across them. Finding more factors that affect zooplankton and how and where they live is important for future of aquatic systems. Zooplankton inhabit all layers of a water body and constitute a major link between primary production and higher trophic levels.
 
 # Sources Cited
 

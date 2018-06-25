@@ -1,0 +1,145 @@
+table,fieldName,description,dataType,units,downloadPkg
+zoo_perVial,uid,"Unique ID within NEON database; an identifier for the record",string,NA,expanded
+zoo_perVial,domainID,"Unique identifier of the NEON domain",string,NA,expanded
+zoo_perVial,siteID,"NEON site code",string,NA,expanded
+zoo_perVial,namedLocation,"Name of the measurement location in the NEON database",string,NA,expanded
+zoo_perVial,startDate,"The start date-time or interval during which an event occurred",dateTime,NA,expanded
+zoo_perVial,collectDate,"Date of the collection event",dateTime,NA,expanded
+zoo_perVial,sampleID,"Identifier for sample",string,NA,expanded
+zoo_perVial,sampleCode,"Barcode of a sample",string,NA,expanded
+zoo_perVial,scientificName,"Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",string,NA,expanded
+zoo_perVial,morphospeciesID,"Identifier for morphospecies",string,NA,expanded
+zoo_perVial,referenceCount,"Number of individuals removed from this sample and placed in reference collection",unsigned integer,number,expanded
+zoo_perVial,referenceID,"Unique identifier associated with the reference collection",string,NA,expanded
+zoo_perVial,referenceCode,"Barcode of a reference sample",string,NA,expanded
+zoo_perVial,laboratoryName,"Name of the laboratory or facility that is processing the sample",string,NA,expanded
+zoo_taxonomyProcessed,uid,"Unique ID within NEON database; an identifier for the record",string,NA,basic
+zoo_taxonomyProcessed,domainID,"Unique identifier of the NEON domain",string,NA,basic
+zoo_taxonomyProcessed,siteID,"NEON site code",string,NA,basic
+zoo_taxonomyProcessed,namedLocation,"Name of the measurement location in the NEON database",string,NA,basic
+zoo_taxonomyProcessed,collectDate,"Date of the collection event",dateTime,NA,basic
+zoo_taxonomyProcessed,identifiedDate,"Date on which the sample, individual, or specimen was identified",dateTime,NA,basic
+zoo_taxonomyProcessed,sampleID,"Identifier for sample",string,NA,basic
+zoo_taxonomyProcessed,taxonID,"Species code, based on one or more sources",string,NA,basic
+zoo_taxonomyProcessed,targetTaxaPresent,"Indicator of whether the sample contained individuals of the target taxa",string,NA,basic
+zoo_taxonomyProcessed,scientificName,"Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",string,NA,basic
+zoo_taxonomyProcessed,morphospeciesID,"Identifier for morphospecies",string,NA,basic
+zoo_taxonomyProcessed,taxonRank,"The lowest level taxonomic rank that can be determined for the individual or specimen",string,NA,basic
+zoo_taxonomyProcessed,phylum,"The scientific name of the phylum or division in which the taxon is classified",string,NA,basic
+zoo_taxonomyProcessed,subphylum,"The scientific name of the subphylum in which the taxon is classified",string,NA,basic
+zoo_taxonomyProcessed,class,"The scientific name of the class in which the taxon is classified",string,NA,basic
+zoo_taxonomyProcessed,subclass,"The scientific name of the subclass in which the taxon is classified",string,NA,basic
+zoo_taxonomyProcessed,infraclass,"The scientific name of the infraclass in which the taxon is classified",string,NA,basic
+zoo_taxonomyProcessed,superorder,"The scientific name of the superorder in which the taxon is classified",string,NA,basic
+zoo_taxonomyProcessed,order,"The scientific name of the order in which the taxon is classified",string,NA,basic
+zoo_taxonomyProcessed,suborder,"The scientific name of the suborder in which the taxon is classified",string,NA,basic
+zoo_taxonomyProcessed,superfamily,"The scientific name of the superfamily in which the taxon is classified",string,NA,basic
+zoo_taxonomyProcessed,family,"The scientific name of the family in which the taxon is classified",string,NA,basic
+zoo_taxonomyProcessed,subfamily,"The scientific name of the subfamily in which the organism is classified",string,NA,basic
+zoo_taxonomyProcessed,genus,"The scientific name of the genus in which the organism is classified",string,NA,basic
+zoo_taxonomyProcessed,specificEpithet,"The specific epithet (second part of the species name) of the scientific name applied to the taxon",string,NA,basic
+zoo_taxonomyProcessed,infraspecificEpithet,"The infraspecific epithet (scientific name below the rank of species) of the scientific name applied to the taxon",string,NA,basic
+zoo_taxonomyProcessed,nauplii,"Indication of whether the zooplankton specimen is nauplii",string,NA,basic
+zoo_taxonomyProcessed,zooMinimumLength,"Minimum length of individuals in zooplankton taxonomic group subsample",real,millimeter,basic
+zoo_taxonomyProcessed,zooMaximumLength,"Maximum length of individuals in zooplankton taxonomic group subsample",real,millimeter,basic
+zoo_taxonomyProcessed,zooMeanLength,"Mean length of individuals in zooplankton taxonomic group subsample",real,millimeter,basic
+zoo_taxonomyProcessed,zooWidth,"Mean width of individuals in zooplankton taxonomic group subsample",real,millimeter,basic
+zoo_taxonomyProcessed,individualCount,"Number of individuals of the same type",unsigned integer,number,basic
+zoo_taxonomyProcessed,subsampleType,"Indicates type of subsample generated",string,NA,basic
+zoo_taxonomyProcessed,zooVolumePerBottle,"Volume of zooplankton subsample per bottle",real,milliliter,basic
+zoo_taxonomyProcessed,zooSubsampleVolume,"Volume of zooplankton subsample analyzed",real,milliliter,basic
+zoo_taxonomyProcessed,adjCountPerBottle,"Count of individuals of the given taxon, multiplied to the volume per bottle to account for lab subsampling",real,number,basic
+zoo_taxonomyProcessed,indeterminateSpecies,"Sample contains specimen(s) not well-described in the literature, not all taxa for a group are included in the literature, or observed characters are such that they do not fit described taxa. See accompanying identificationRemarks",string,NA,basic
+zoo_taxonomyProcessed,sampleCondition,"Condition of a sample",string,NA,basic
+zoo_taxonomyProcessed,notSubsampled,"Subsampling was not performed (for example, due to relative taxon abundance or rareness within a sample)",string,NA,basic
+zoo_taxonomyProcessed,distinctTaxon,"Taxon is known to be distinct within the sample, used for species richness metrics",string,NA,basic
+zoo_taxonomyProcessed,identificationQualifier,"A standard term to express the determiner's doubts about the Identification",string,NA,basic
+zoo_taxonomyProcessed,identificationReferences,"A list of sources (concatenated and semicolon separated) used to derive the specific taxon concept; including field guide editions, books, or versions of NEON keys used",string,NA,basic
+zoo_taxonomyProcessed,qcChecked,"Whether or not QC procedure was performed",string,NA,basic
+zoo_taxonomyProcessed,qcEnumerationDifference,"Percent difference in enumeration (PDE) between the first taxonomist and the second taxonomist for the same sample",real,percent,basic
+zoo_taxonomyProcessed,qcTaxonomicDifference,"Percent taxonomic difference (PTD) between the first taxonomist and the second taxonomist for the same sample",real,percent,basic
+zoo_taxonomyProcessed,laboratoryName,"Name of the laboratory or facility that is processing the sample",string,NA,basic
+zoo_taxonomyProcessed,internalLabName,"Name of internal laboratory or facility that is processing the sample",string,NA,basic
+zoo_taxonomyProcessed,testProtocolVersion,"The protocol version used to test the sample",string,NA,basic
+zoo_taxonomyProcessed,identifiedBy,"An identifier for the technician who identified the specimen",string,NA,basic
+zoo_taxonomyProcessed,identificationRemarks,"Comments or notes about the identification",string,NA,basic
+zoo_taxonomyRaw,uid,"Unique ID within NEON database; an identifier for the record",string,NA,expanded
+zoo_taxonomyRaw,domainID,"Unique identifier of the NEON domain",string,NA,expanded
+zoo_taxonomyRaw,siteID,"NEON site code",string,NA,expanded
+zoo_taxonomyRaw,namedLocation,"Name of the measurement location in the NEON database",string,NA,expanded
+zoo_taxonomyRaw,collectDate,"Date of the collection event",dateTime,NA,expanded
+zoo_taxonomyRaw,identifiedDate,"Date on which the sample, individual, or specimen was identified",dateTime,NA,expanded
+zoo_taxonomyRaw,sampleID,"Identifier for sample",string,NA,expanded
+zoo_taxonomyRaw,taxonID,"Species code, based on one or more sources",string,NA,expanded
+zoo_taxonomyRaw,targetTaxaPresent,"Indicator of whether the sample contained individuals of the target taxa",string,NA,expanded
+zoo_taxonomyRaw,scientificName,"Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",string,NA,expanded
+zoo_taxonomyRaw,morphospeciesID,"Identifier for morphospecies",string,NA,expanded
+zoo_taxonomyRaw,taxonRank,"The lowest level taxonomic rank that can be determined for the individual or specimen",string,NA,expanded
+zoo_taxonomyRaw,phylum,"The scientific name of the phylum or division in which the taxon is classified",string,NA,expanded
+zoo_taxonomyRaw,subphylum,"The scientific name of the subphylum in which the taxon is classified",string,NA,expanded
+zoo_taxonomyRaw,class,"The scientific name of the class in which the taxon is classified",string,NA,expanded
+zoo_taxonomyRaw,subclass,"The scientific name of the subclass in which the taxon is classified",string,NA,expanded
+zoo_taxonomyRaw,infraclass,"The scientific name of the infraclass in which the taxon is classified",string,NA,expanded
+zoo_taxonomyRaw,superorder,"The scientific name of the superorder in which the taxon is classified",string,NA,expanded
+zoo_taxonomyRaw,order,"The scientific name of the order in which the taxon is classified",string,NA,expanded
+zoo_taxonomyRaw,suborder,"The scientific name of the suborder in which the taxon is classified",string,NA,expanded
+zoo_taxonomyRaw,superfamily,"The scientific name of the superfamily in which the taxon is classified",string,NA,expanded
+zoo_taxonomyRaw,family,"The scientific name of the family in which the taxon is classified",string,NA,expanded
+zoo_taxonomyRaw,subfamily,"The scientific name of the subfamily in which the organism is classified",string,NA,expanded
+zoo_taxonomyRaw,genus,"The scientific name of the genus in which the organism is classified",string,NA,expanded
+zoo_taxonomyRaw,specificEpithet,"The specific epithet (second part of the species name) of the scientific name applied to the taxon",string,NA,expanded
+zoo_taxonomyRaw,infraspecificEpithet,"The infraspecific epithet (scientific name below the rank of species) of the scientific name applied to the taxon",string,NA,expanded
+zoo_taxonomyRaw,nauplii,"Indication of whether the zooplankton specimen is nauplii",string,NA,expanded
+zoo_taxonomyRaw,zooMinimumLength,"Minimum length of individuals in zooplankton taxonomic group subsample",real,millimeter,expanded
+zoo_taxonomyRaw,zooMaximumLength,"Maximum length of individuals in zooplankton taxonomic group subsample",real,millimeter,expanded
+zoo_taxonomyRaw,zooMeanLength,"Mean length of individuals in zooplankton taxonomic group subsample",real,millimeter,expanded
+zoo_taxonomyRaw,zooWidth,"Mean width of individuals in zooplankton taxonomic group subsample",real,millimeter,expanded
+zoo_taxonomyRaw,individualCount,"Number of individuals of the same type",unsigned integer,number,expanded
+zoo_taxonomyRaw,subsampleType,"Indicates type of subsample generated",string,NA,expanded
+zoo_taxonomyRaw,zooVolumePerBottle,"Volume of zooplankton subsample per bottle",real,milliliter,expanded
+zoo_taxonomyRaw,zooSubsampleVolume,"Volume of zooplankton subsample analyzed",real,milliliter,expanded
+zoo_taxonomyRaw,adjCountPerBottle,"Count of individuals of the given taxon, multiplied to the volume per bottle to account for lab subsampling",real,number,expanded
+zoo_taxonomyRaw,indeterminateSpecies,"Sample contains specimen(s) not well-described in the literature, not all taxa for a group are included in the literature, or observed characters are such that they do not fit described taxa. See accompanying identificationRemarks",string,NA,expanded
+zoo_taxonomyRaw,sampleCondition,"Condition of a sample",string,NA,expanded
+zoo_taxonomyRaw,notSubsampled,"Subsampling was not performed (for example, due to relative taxon abundance or rareness within a sample)",string,NA,expanded
+zoo_taxonomyRaw,distinctTaxon,"Taxon is known to be distinct within the sample, used for species richness metrics",string,NA,expanded
+zoo_taxonomyRaw,taxonDatabaseID,"Unique identifier for the taxon within the database",string,NA,expanded
+zoo_taxonomyRaw,taxonDatabaseName,"Name of the taxonomic database",string,NA,expanded
+zoo_taxonomyRaw,identificationQualifier,"A standard term to express the determiner's doubts about the Identification",string,NA,expanded
+zoo_taxonomyRaw,identificationReferences,"A list of sources (concatenated and semicolon separated) used to derive the specific taxon concept; including field guide editions, books, or versions of NEON keys used",string,NA,expanded
+zoo_taxonomyRaw,qcChecked,"Whether or not QC procedure was performed",string,NA,expanded
+zoo_taxonomyRaw,qcEnumerationDifference,"Percent difference in enumeration (PDE) between the first taxonomist and the second taxonomist for the same sample",real,percent,expanded
+zoo_taxonomyRaw,qcTaxonomicDifference,"Percent taxonomic difference (PTD) between the first taxonomist and the second taxonomist for the same sample",real,percent,expanded
+zoo_taxonomyRaw,laboratoryName,"Name of the laboratory or facility that is processing the sample",string,NA,expanded
+zoo_taxonomyRaw,internalLabName,"Name of internal laboratory or facility that is processing the sample",string,NA,expanded
+zoo_taxonomyRaw,testProtocolVersion,"The protocol version used to test the sample",string,NA,expanded
+zoo_taxonomyRaw,identifiedBy,"An identifier for the technician who identified the specimen",string,NA,expanded
+zoo_taxonomyRaw,identificationRemarks,"Comments or notes about the identification",string,NA,expanded
+zoo_fieldData,uid,"Unique ID within NEON database; an identifier for the record",string,NA,basic
+zoo_fieldData,domainID,"Unique identifier of the NEON domain",string,NA,basic
+zoo_fieldData,siteID,"NEON site code",string,NA,basic
+zoo_fieldData,namedLocation,"Name of the measurement location in the NEON database",string,NA,basic
+zoo_fieldData,decimalLatitude,"The geographic latitude (in decimal degrees, WGS84) of the geographic center of the reference area",real,decimalDegree,basic
+zoo_fieldData,decimalLongitude,"The geographic longitude (in decimal degrees, WGS84) of the geographic center of the reference area",real,decimalDegree,basic
+zoo_fieldData,coordinateUncertainty,"The horizontal distance (in meters) from the given decimalLatitude and decimalLongitude describing the smallest circle containing the whole of the Location. Zero is not a valid value for this term",real,meter,basic
+zoo_fieldData,additionalCoordUncertainty,"Additional uncertainty to be added to the coordinate uncertainty at all sites",real,meter,basic
+zoo_fieldData,geodeticDatum,"Model used to measure horizontal position on the earth",string,NA,basic
+zoo_fieldData,elevation,"Elevation (in meters) above sea level",real,meter,basic
+zoo_fieldData,elevationUncertainty,"Uncertainty in elevation values (in meters)",real,meter,basic
+zoo_fieldData,aquaticSiteType,"Type of aquatic site, includes lake, river or stream",string,NA,basic
+zoo_fieldData,startDate,"The start date-time or interval during which an event occurred",dateTime,NA,basic
+zoo_fieldData,collectDate,"Date of the collection event",dateTime,NA,basic
+zoo_fieldData,eventID,"An identifier for the set of information associated with the event, which includes information about the place and time of the event",string,NA,basic
+zoo_fieldData,sampleID,"Identifier for sample",string,NA,basic
+zoo_fieldData,sampleCode,"Barcode of a sample",string,NA,basic
+zoo_fieldData,samplingProtocolVersion,"The NEON document number and version where detailed information regarding the sampling method used is available; format NEON.DOC.######vX",string,NA,basic
+zoo_fieldData,samplingImpractical,"Samples and/or measurements were not collected due to the indicated circumstance",string,NA,basic
+zoo_fieldData,samplerType,"Type of sampler used to collect the sample",string,NA,basic
+zoo_fieldData,towsTrapsNumber,"Number of zooplankton tows or traps composited into one sample",unsigned integer,number,basic
+zoo_fieldData,towsTrapsVolume,"Sample volume collected for zooplankton",real,liter,basic
+zoo_fieldData,zooDepth1,"Depth of the first sample for a composite lake zooplankton sample",real,meter,basic
+zoo_fieldData,zooDepth2,"Depth of the second sample for a composite lake zooplankton sample",real,meter,basic
+zoo_fieldData,zooDepth3,"Depth of the third sample for a composite lake zooplankton sample",real,meter,basic
+zoo_fieldData,remarks,"Technician notes; free text comments accompanying the record",string,NA,basic
+zoo_fieldData,recordedBy,"An identifier for the technician who recorded the data",string,NA,basic
+zoo_fieldData,collectedBy,"An identifier for the technician who collected the sample or specimen",string,NA,basic

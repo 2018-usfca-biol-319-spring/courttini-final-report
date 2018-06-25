@@ -14,9 +14,9 @@ library("neonDataStackR")
 
 # Example download and stack code:
 # Change the data product ID (dpID) to the data set you want to download.
-# This is for herbaceous clip harvest data, from all sites and months for
+# This is for zooplankton collection, from all sites and months for
 # which it is currently available.
-zipsByProduct(dpID = "DP1.10023.001",
+zipsByProduct(dpID = "DP1.20219.001",
               site = "all",
               package = "expanded",
               check.size = TRUE)
@@ -25,6 +25,6 @@ zipsByProduct(dpID = "DP1.10023.001",
 # Change the data product ID to the ID for the dataset you want to download
 # and the filepath to the name of the folder that was downloaded in the
 # previous step
-stackByTable(dpID = "DP1.10023.001",
-             filepath = "filesToStack10023",
+stackByTable(dpID = "DP1.20219.001",
+             filepath = "filesToStack20219",
              folder = TRUE)
